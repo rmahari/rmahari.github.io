@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert Mahari</title>
+    
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <link rel="stylesheet" href="css/academicons.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    
+	<style>
+	
+		body {
+			font-family: 'Roboto', sans-serif;
+		}
+		
+		.circle-image {
+			border-radius: 50%;
+		}
+		
+		.container-main {
+			min-height: 100vh;
+		}
+		
+		.navy {
+			color: #1C3A65;
+		}
+		
+		.black{
+			color: #000000;
+		}
+		
+		.project-box {
+			border: 1px solid #e0e0e0;
+			border-radius: 6px;
+			padding: 16px;
+			background-color: #f9f9f9;
+		}
+
+		.square-box {
+			position: relative;
+			width: 100%;
+			padding-bottom: 90%;
+			overflow: hidden;
+			border: 1px solid #e0e0e0;
+			border-radius: 6px;
+		}
+
+		.square-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: 4px;
+			z-index: 1;
+		}
+
+		.square-content::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: white;
+			opacity: 0.6;
+			z-index: 1; 
+		}
+
+		.bg-common {
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		
+		.square-content p {
+			opacity: 0;
+		}
+
+		.square-box:hover .square-content {
+			opacity: 0.9;
+			background-color: white;
+		}
+
+		.square-box:hover .square-content p,
+		.square-box:hover .read-paper-button,
+		.square-box:hover .centered-button {
+			opacity: 1;
+		}
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 16px;
+		}
+
+		.read-paper-button {
+			position: absolute;
+			bottom: 10%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			opacity: 0;
+		}
+
+		.centered-button {
+			border: 2px solid #000;
+			background-color: rgb(255, 255, 255);
+			padding: 10px;
+			border-radius: 12px;
+			opacity: 0;
+		}
+
+		.square-content h1 {
+			font-size: 1.5em; 
+			font-weight: 600;
+			color: black;
+			font-family: 'Roboto', sans-serif;
+			text-align: center;
+			}
+
+			.square-content h1, 
+			.square-content p {
+			position: relative;
+			z-index: 2;
+		}
+
+		.read-paper-button {
+			position: absolute;
+			bottom: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 3;
+		}
+
+		.video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+	</style>
+    
+    <script>
+        //To avoid email scrapers, we use this
+		const emailContainer = document.getElementById('email-container');
+        const emailName = '&#114;&#109;&#97;&#104;&#97;&#114;&#105;';
+        const emailDomain = '&#109;&#105;&#116;&#46;&#101;&#100;&#117;';
+        const emailLink = `<a href="mailto:${emailName}@${emailDomain}" class="navy">${emailName}@${emailDomain}</a>`;
+        emailContainer.innerHTML = emailLink;
+
+		//Scroll to section
+		function scrollToSection(id) {
+		const section = document.getElementById(id);
+		const yOffset = -80; // Adjust the offset value as needed
+		const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+		window.scrollTo({ top: y, behavior: 'smooth' });
+		}
+
+
+    </script>
+</head>
+
+<body class="scroll-behavior[smooth]">
+
+	<!-- Navigation -->
+	<div class="fixed top-0 left-0 right-0 bg-white z-10 p-4">
+		<nav>
+		<ul class="flex space-x-4">
+			<li>
+			<a href="javascript:void(0)" onclick="scrollToSection('home')" class="text-xl font-semibold">Home</a>
+			</li>
+			<li>
+			<a href="javascript:void(0)" onclick="scrollToSection('research')" class="text-xl font-semibold">Research</a>
+			</li>
+			<li>
+			<a href="javascript:void(0)" onclick="scrollToSection('speaking')" class="text-xl font-semibold">Speaking</a>
+			</li>
+		</ul>
+		</nav>
+	</div>
+
+	<!-- Header -->
+    
+	<div id = "home" class="container mx-auto py-8 px-4 md:px-8 container-main align-center">
+        <div class="flex flex-col md:flex-row justify-center items-center py-2 md:py-12 md:space-x-8">
+            <div class="text-center align-center mb-6 md:mb-0">
+                <img src="images/Headshot_Full.jpg" alt="Robert Mahari"
+                    class="circle-image w-48 md:w-96 mx-auto md:mx-0 mb-4 aspect-square object-scale-down	">
+                <h1 class="text-5xl font-bold black">Robert Mahari</h1>
+                <div class="text-xl font-semibold black flex justify-center  space-x-4 mt-2">
+                    <a href="https://www.linkedin.com/in/robert-mahari-874310157" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=3qM8lPsAAAAJ&hl=en" target="_blank"
+                        rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+                </div>
+                <div id="email-container" class="text-xl black">rmahari@mit.edu</div> <!-- Email container to avoid email scrapers -->
+                <p class="text-xl font-semibold black mt-2 flex justify-center items-center">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Boston, Massachusetts
+                </p>
+            </div>
+            <div class="text-left md:text-left  max-w-md py-8 px-4 md:px-8">
+                <!--<p class="text-xl font-semibold black mb-2">Building the future of computational law</p>-->
+                <!-- <p class="black">Building the future of computational law</p> -->
+				<p class="text-xl font-semibold black mb-2">About me</p>
+                <p class="black">I'm pursuing a joint JD-PhD degree at Harvard Law School and the MIT Media Lab. 
+					  			 My work focuses on <b>Computational Law</b>: leveraging computation to analyze, improve, 
+								 and extend the study and practice of law. 
+				<br>
+				<br>
+				<p class="black">My research aims to bridge the gap between technology and law to surface new quantitative insights 
+								 into jurisprudential systems and to identify computationally-enabled approaches to the practice of law. 
+								 By formalizing research around computational law, I aim to deepen our understanding of legal processes, 
+								 while building tools that improve legal practice, expand access to justice, and increase judicial efficacy. 
+								 I also study the technological transformation of the legal profession and its effect on how 
+								 organizations manage legal services and risks. To this end, I collaborate with private and public 
+								 entities around the world to prototype practice-oriented computational legal solutions, deploying and 
+								 studying computational law in the real world.
+						
+
+                <!--<p class="text-xl font-bold black mt-6 mb-2">Updates</p>
+                <p class="text-base black"></p>-->
+            </div>
+        </div>
+		
+		<!--Research-->
+		
+		<div id="research" class="py-8 px-4 md:px-8 scroll-offset">
+			<h2 class="text-2xl font-bold black mb-4">Research</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+		
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/litigation_finance.png');">
+					<div class="square-content p-4">
+						<h1>Economics of Litigation Finance</h1>
+						<p class="hover-content">Grounded in empirical data, we explore how litigation finance affects the way litgants and law firms behave.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/law_of_law.png');">
+					<div class="square-content p-4">
+						<h1>Uncovering the universal dynamics of citation systems</h1>
+						<p class="hover-content">Many human knowledge systems accumulate knowledge through citations. 
+							We show that several key citation dynamics appear to be universal across science, law, and and patents. 
+							We propose the Community Citation model that focuses on knowledge community's collective attention and show that our 
+							model captures key dynamics and better predicts the future trajectory of publications.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('', '_blank', 'noopener,noreferrer')">TBA</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/aml_by_design.png');">
+					<div class="square-content p-4">
+						<h1>AML by Design</h1>
+						<p class="hover-content">Designing central bank digital currencies to stifle money laundering.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://sciencepolicyreview.org/wp-content/uploads/securepdfs/2022/08/MITSPR-v3-191618003020.pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/gen_ai.png');">
+					<div class="square-content p-4">
+						<h1>Art and Science of Generative AI</h1>
+						<p class="hover-content">Exploring the role of human creativity in generative AI.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/antitrust.png');">
+					<div class="square-content p-4">
+						<h1>New Antitrust Era</h1>
+						<p class="hover-content">The unique challenges of a data-driven marketplace: expanding monopoly power to include data ownership and enhancing premerger review processes using network science.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://law.stanford.edu/wp-content/uploads/2021/04/pentland-computational-antitrust-project.pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/artificial_fm.png');">
+					<div class="square-content p-4">
+						<h1>Co-creation and ownership for AI radio</h1>
+						<p class="hover-content"> Blending AI-generated music with listener ratings and personalized recommendations, enables large-scale human curation and raises questions about the ownership of AI-created content.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://computationalcreativity.net/iccc22/wp-content/uploads/2022/06/ICCC-2022_21S_Gordon-et-al..pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/data_provenance.png');">
+					<div class="square-content p-4">
+						<h1>Data Provenance Project</h1>
+						<p class="hover-content"> A large-scale audit of AI training data including data licenses, sources, and provenance.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org/paper.pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+			
+
+
+				
+			</div>
+		  </div>
+
+
+		<!--Speaking-->
+		<div id="speaking" class="py-8 px-4 md:px-8 scroll-offset">
+			<h2 class="text-2xl font-bold black mb-4">Speaking</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+	
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">The Future of Law: AI Powered Justice? | TEDxBoston</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/dQnUrtc7I_I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">Inaugural Speech | University of Warsaw </h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/OLo7ili_KZk?start=5092" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">Future for digital universal wallets | Linux Foundation</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/87slObeK6_8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">Data-driven Justice | UN World Data Forum </h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/BQfayQ8cB9c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">Computational Insights from Legal Data | law.MIT.edu</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/jZxloYu4u2Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">A New Antitrust Era | Stanford Computational Antitrust</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/oC_UyeQyD9M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">Artifical.fm | law.MIT.edu</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/FQVRZV6vGbA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">CBDC & Privacy Technology | FNA</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/i9e8BRgeBFM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				</div>
+			</div>
+		</div>
+
+		
+
+</body>
+		
+	<footer class="bg-blue-100 mt-8 py-4 text-center">
+		<p class="text-base black">Website built from scratch with help from ChatGPT, DALL·E 3, Midjourney, and <a href="https://tobin.page" class="custom-link"/> Tobin South</a> </p>
+	</footer>
+		
+</html>
+		  
+
+		<!--
+		<div class="py-8 px-4 md:px-8">
+			<h2 class="text-2xl font-bold black mb-4">Projects</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			  <div class="square-box bg-image border border-gray-300 rounded p-4">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+				  <a href="https://transformers.mit.edu" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">Secure Community Transformers</a>
+				  <p>An initiative focused on the development and implementation of secure and privacy-preserving machine learning algorithms for community benefit.</p>
+				</div>
+			  </div>
+			  <div class="square-box bg-image border border-gray-300 rounded p-4">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+				  <a href="https://arxiv.org/abs/2106.16034" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">AutoLAW</a>
+				  <p>Building tools to predict legal citations before it was popular.</p>
+				</div>
+			  </div>
+			  <div class="square-box bg-image border border-gray-300 rounded p-4">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+				  <a href="https://www.networklawreview.org/computational-one/" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">Legal Dynamism</a>
+				  <p>What could the future of automatically changing dynamics laws look like. Network Law Review.</p>
+				</div>
+			  </div>
+			  
+
+			  
+			  <div class="square-box bg-image border border-gray-300 rounded p-4">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+				  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">Litigation Finance</a>
+				  <p>An ongoing series of work building on how computational tools can play a role in financing lawsuits.</p>
+				</div>
+			  </div>
+			  <div class="square-box bg-image border border-gray-300 rounded p-4">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+				  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4387540" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">Justice in a Vacuum</a>
+				  <p>A research project exploring the implications of justice systems and decentralization in a world apart from state enforcement.</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+	-->
+		<!--
+        <div class="md:flex md:justify-between">
+            <div class="py-8 px-4 md:px-8 md:w-1/2">
+                <h2 class="text-2xl font-bold black mb-4">Organised Conference</h2>
+                <ul class="list-none space-y-2 text-base black">
+                    <li>CBDC Conference, MIT, 2022</li>
+                    <li>UN Conference, China, 2023</li>
+                    <li>Future of Legal Technology, 2023</li>
+                </ul>
+                <h2 class="text-2xl font-bold black my-4">Speaking Appearances</h2>
+                <ul class="list-none space-y-2 text-base black">
+                    <li> International Conference for Computational Social Science (IC2S2), 2023</li>
+                    <li>Conference on Computational Law, 2022</li>
+                    <li> International Conference for Computational Social Science (IC2S2), 2022</li>
+                    <li>AI and Ethics Summit, 2021</li>
+                </ul>
+            </div>
+            <div class="py-8 px-4 md:px-8 md:w-1/2">
+                <h2 class="text-2xl font-bold black mb-4">Public Recordings</h2>
+                <div class="space-y-4">
+                    <div class="embed-responsive">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jZxloYu4u2Y"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="embed-responsive">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/oC_UyeQyD9M"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+		-->
+
+
+		<!--
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/Headshot_Full.jpg');">
+				<div class="square-content bg-white bg-opacity-70 p-4">
+					<a href="https://transformers.mit.edu" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">Secure Community Transformers</a>
+					<p>An initiative focused on the development and implementation of secure and privacy-preserving machine learning algorithms for community benefit.</p>
+				</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/Headshot_Full.jpg');">
+				<div class="square-content bg-white bg-opacity-50 p-4">
+					<a href="https://sciencepolicyreview.org/wp-content/uploads/securepdfs/2022/08/MITSPR-v3-191618003020.pdf" class="text-xl font-semibold black" target="_blank" rel="noopener noreferrer">AML by design</a>
+					<p>Designing a central bank digital currency to stifle money laundering.</p>
+				</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/litigation_finance.png');">
+					<div class="square-content bg-white bg-opacity-70 p-4">
+						<h1>Economics of Litigation Finance</h1>
+						<p class="hover-content">Grounded in empirical data, we explore how litigation finance affects the way litgants and law firms behave.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/aml_by_design.png');">
+					<div class="square-content bg-white p-4">
+						<h1>AML by design</h1>
+						<p class="hover-content">Designing a central bank digital currency to stifle money laundering.</p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://sciencepolicyreview.org/wp-content/uploads/securepdfs/2022/08/MITSPR-v3-191618003020.pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		  </div>
+		-->
+
+	
