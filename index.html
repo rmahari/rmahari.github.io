@@ -116,20 +116,6 @@
 			opacity: 1; /* was 0 */
 		}
 
-		.square-content h1 {
-			font-size: 1.5em; 
-			font-weight: 600;
-			color: black;
-			font-family: 'Roboto', sans-serif;
-			text-align: center;
-			}
-
-			.square-content h1, 
-			.square-content p {
-			position: relative;
-			z-index: 2;
-		}
-
 		.read-paper-button {
 			position: absolute;
 			bottom: 10%;
@@ -164,6 +150,56 @@
 		.custom-link:hover {
 			color: #005599;
 		}
+
+		.centered-button {
+			width: 100px; /* Fixed width for each button */
+    		height: 50px; /* Fixed height for two lines of text */
+			font-size: 0.8em;
+			line-height: 1.2em;
+			text-align: center;
+			padding: 10px 5px;
+			margin: 2px;
+			overflow: hidden;
+			white-space: normal;
+			text-overflow: clip;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+		}
+
+		.read-paper-button {
+			display: flex;
+			justify-content: space-between; /* Adjusts spacing between buttons */
+			align-items: center;
+			flex-wrap: nowrap; /* Prevents buttons from wrapping */
+		}
+
+		.square-content h1 {
+			font-size: 1.3em; /* Larger font size as specified */
+			font-weight: 600; /* Boldness of the font */
+			color: black; /* Text color */
+			font-family: 'Roboto', sans-serif; /* Specific font-family */
+			text-align: center; /* Center align text */
+			line-height: 1.2em; /* Line height for proper spacing - adjust as needed */
+			height: 2.4em; /* Double the line height to fit exactly two lines */
+			overflow: hidden; /* Hide any overflow */
+			text-overflow: ellipsis; /* Add an ellipsis to any overflowed text */
+			display: -webkit-box;
+			-webkit-line-clamp: 2; /* Limit text to two lines */
+			-webkit-box-orient: vertical;
+			position: relative; /* As specified, to work with z-index */
+			z-index: 2; /* Ensure it's above any background elements */
+		}
+
+		.square-content p {
+			font-size: 1.0em;
+			position: relative; /* As specified, to work with z-index */
+			z-index: 2; /* Ensure it's above any background elements */
+		}
+
+
+
 
 
 	</style>
@@ -261,7 +297,7 @@
 						<h1>Art and Science of Generative AI</h1>
 						<p class="hover-content">Exploring the role of human creativity in generative AI.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Science Perspective</button>
+							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Perspective</button>
 							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2306.04141', '_blank', 'noopener,noreferrer')">Whitepaper</button>
 							<button class="centered-button" onclick="window.open('https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473', '_blank', 'noopener,noreferrer')">Op-Ed</button>
 						</div>
@@ -273,7 +309,9 @@
 						<h1>Data Provenance Project</h1>
 						<p class="hover-content"> A large-scale audit of AI training data including data licenses, sources, and provenance.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org/paper.pdf', '_blank', 'noopener,noreferrer')">Read the Paper</button>
+							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org/paper.pdf', '_blank', 'noopener,noreferrer')">Whitepaper</button>
+							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org', '_blank', 'noopener,noreferrer')">Data Explorer</button>
+							<button class="centered-button" onclick="window.open('https://www.regulations.gov/comment/COLC-2023-0006-9063', '_blank', 'noopener,noreferrer')">Comment to U.S. Copyright Office</button>
 						</div>
 					</div>
 				</div>
@@ -304,9 +342,7 @@
 				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/TBD.png');">
 					<div class="square-content p-4">
 						<h1>The Law and NLP: Bridging Disciplinary Disconnects</h1>
-						<p class="hover-content">Legal practice is intrinsically rooted in the fabric of language, yet legal practitioners and scholars have been slow to adopt tools from natural language processing (NLP). 
-							The legal system is experiencing an access to justice crisis, which could be partially alleviated with NLP. 
-							We argue that the slow uptake of NLP in legal practice is exacerbated by a disconnect between the needs of the legal community and the focus of NLP researchers. </p>
+						<p class="hover-content">Law is rooted in language, yet it has been slow to adopt tools from natural language processing (NLP) which could help alleviate the access to justice crisis. We argue that the slow uptake of NLP in legal practice is exacerbated by a disconnect between the needs of the legal community and the focus of NLP researchers. </p>
 						<div class="read-paper-button">
 							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2310.14346', '_blank', 'noopener,noreferrer')">Paper</button>
 						</div>
