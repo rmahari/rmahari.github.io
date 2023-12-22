@@ -57,7 +57,7 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			padding: 4px;
+			padding: 8px;
 			z-index: 1;
 		}
 
@@ -176,31 +176,28 @@
 		}
 
 		.square-content h1 {
-			font-size: 1.3em; /* Larger font size as specified */
-			font-weight: 600; /* Boldness of the font */
-			color: black; /* Text color */
-			font-family: 'Roboto', sans-serif; /* Specific font-family */
-			text-align: center; /* Center align text */
-			line-height: 1.2em; /* Line height for proper spacing - adjust as needed */
-			height: 2.4em; /* Double the line height to fit exactly two lines */
-			overflow: hidden; /* Hide any overflow */
-			text-overflow: ellipsis; /* Add an ellipsis to any overflowed text */
+			font-size: 1.4em;
+			color: black;
+			font-weight: 600; 
+			font-family: 'Roboto', sans-serif; 
+			text-align: center; 
+			line-height: 1.2em;
+			height: 2.4em;
+			overflow: hidden; 
+			text-overflow: ellipsis; 
 			display: -webkit-box;
-			-webkit-line-clamp: 2; /* Limit text to two lines */
+			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical;
-			position: relative; /* As specified, to work with z-index */
-			z-index: 2; /* Ensure it's above any background elements */
+			position: relative; 
+			z-index: 2; 
 		}
 
 		.square-content p {
 			font-size: 1.0em;
-			position: relative; /* As specified, to work with z-index */
-			z-index: 2; /* Ensure it's above any background elements */
+			font-weight: 400;
+			position: relative; 
+			z-index: 2; 
 		}
-
-
-
-
 
 	</style>
     
@@ -297,7 +294,7 @@
 						<h1>Art and Science of Generative AI</h1>
 						<p class="hover-content">Exploring the role of human creativity in generative AI.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Perspective</button>
+							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Perspective in Science</button>
 							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2306.04141', '_blank', 'noopener,noreferrer')">Whitepaper</button>
 							<button class="centered-button" onclick="window.open('https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473', '_blank', 'noopener,noreferrer')">Op-Ed</button>
 						</div>
@@ -319,10 +316,7 @@
 				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/3.png');">
 					<div class="square-content p-4">
 						<h1>Uncovering the universal dynamics of citation systems</h1>
-						<p class="hover-content">Many human knowledge systems accumulate knowledge through citations. 
-							We show that several key citation dynamics appear to be universal across science, law, and and patents. 
-							We propose the Community Citation model that focuses on knowledge community's collective attention and show that our 
-							model captures key dynamics and better predicts the future trajectory of publications.</p>
+						<p class="hover-content">Knowledge systems like science, law, and patents accumulate knowledge through citations. We show that many citation dynamics are universal across these systems. We introduce the Community Citation Model and show that it gives rise to citation dynamics and better predicts future citations trajectories.</p>
 						<div class="read-paper-button">
 							<button class="centered-button" onclick="window.open('', '_blank', 'noopener,noreferrer')">TBA</button>
 						</div>
@@ -343,6 +337,16 @@
 					<div class="square-content p-4">
 						<h1>The Law and NLP: Bridging Disciplinary Disconnects</h1>
 						<p class="hover-content">Law is rooted in language, yet it has been slow to adopt tools from natural language processing (NLP) which could help alleviate the access to justice crisis. We argue that the slow uptake of NLP in legal practice is exacerbated by a disconnect between the needs of the legal community and the focus of NLP researchers. </p>
+						<div class="read-paper-button">
+							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2310.14346', '_blank', 'noopener,noreferrer')">Paper</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/5.png');">
+					<div class="square-content p-4">
+						<h1>LePaRD: A Large-Scale Dataset of Judges Citing Precedents</h1>
+						<p class="hover-content">Introducing LePaRD, a massive collection of U.S. federal judicial citations to precedent in context. The dataset aims to facilitate work on legal passage prediction, a challenging practice oriented legal retrieval and reasoning task.</p>
 						<div class="read-paper-button">
 							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2310.14346', '_blank', 'noopener,noreferrer')">Paper</button>
 						</div>
