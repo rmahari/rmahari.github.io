@@ -100,14 +100,6 @@
 			grid-gap: 16px;
 		}
 
-		.read-paper-button {
-			position: absolute;
-			bottom: 10%;
-			left: 50%;
-			transform: translate(-50%, 0);
-			opacity: 1; /* was 0 */
-		}
-
 		.centered-button {
 			border: 2px solid #000;
 			background-color: rgb(255, 255, 255);
@@ -122,6 +114,7 @@
 			left: 50%;
 			transform: translateX(-50%);
 			z-index: 3;
+			opacity: 1
 		}
 
 		.video-container {
@@ -152,8 +145,10 @@
 		}
 
 		.centered-button {
-			width: 100px; /* Fixed width for each button */
     		height: 50px; /* Fixed height for two lines of text */
+			min-width: 80px; /* Minimum width */
+			max-width: 120px; /* Maximum width, adjust as needed */
+			width: auto; /* Adjusts width to content */
 			font-size: 0.8em;
 			line-height: 1.2em;
 			text-align: center;
@@ -294,7 +289,7 @@
 						<h1>Art and Science of Generative AI</h1>
 						<p class="hover-content">Exploring the role of human creativity in generative AI.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Perspective in Science</button>
+							<button class="centered-button" onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')">Science Perspective</button>
 							<button class="centered-button" onclick="window.open('https://arxiv.org/abs/2306.04141', '_blank', 'noopener,noreferrer')">Whitepaper</button>
 							<button class="centered-button" onclick="window.open('https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473', '_blank', 'noopener,noreferrer')">Op-Ed</button>
 						</div>
@@ -306,9 +301,9 @@
 						<h1>Data Provenance Project</h1>
 						<p class="hover-content"> A large-scale audit of AI training data including data licenses, sources, and provenance.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org/paper.pdf', '_blank', 'noopener,noreferrer')">Whitepaper</button>
-							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org', '_blank', 'noopener,noreferrer')">Data Explorer</button>
-							<button class="centered-button" onclick="window.open('https://www.regulations.gov/comment/COLC-2023-0006-9063', '_blank', 'noopener,noreferrer')">Comment to U.S. Copyright Office</button>
+							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org/paper.pdf', '_blank', 'noopener,noreferrer')">Preprint</button>
+							<button class="centered-button" onclick="window.open('https://www.regulations.gov/comment/COLC-2023-0006-9063', '_blank', 'noopener,noreferrer')">Copyright Office Comment</button>
+							<button class="centered-button" onclick="window.open('https://www.dataprovenance.org', '_blank', 'noopener,noreferrer')">Demo</button>
 						</div>
 					</div>
 				</div>
@@ -343,7 +338,7 @@
 					</div>
 				</div>
 
-				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/5.png');">
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/6.png');">
 					<div class="square-content p-4">
 						<h1>LePaRD: A Large-Scale Dataset of Judges Citing Precedents</h1>
 						<p class="hover-content">A massive collection of U.S. federal judicial citations to precedent in context that facilitates work on legal passage prediction, a challenging practice oriented legal retrieval and reasoning task.</p>
@@ -353,7 +348,7 @@
 					</div>
 				</div>
 
-				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/6.png');">
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/7.png');">
 					<div class="square-content p-4">
 						<h1>AML by Design</h1>
 						<p class="hover-content">Designing central bank digital currencies to stifle money laundering.</p>
@@ -363,9 +358,9 @@
 					</div>
 				</div>
 
-				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/7.png');">
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/8.png');">
 					<div class="square-content p-4">
-						<h1>New Antitrust Era</h1>
+						<h1>Time for a New Antitrust Era</h1>
 						<p class="hover-content">Responding to unique challenges of a data-driven marketplace by expanding monopoly power to include data ownership and enhancing premerger review with network science.</p>
 						<div class="read-paper-button">
 							<button class="centered-button" onclick="window.open('https://law.stanford.edu/wp-content/uploads/2021/04/pentland-computational-antitrust-project.pdf', '_blank', 'noopener,noreferrer')">Stanford Computational Antritrust Paper</button>
@@ -373,12 +368,12 @@
 					</div>
 				</div>
 
-				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/8.png');">
+				<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images/9.png');">
 					<div class="square-content p-4">
 						<h1>Co-creation and ownership for AI radio</h1>
 						<p class="hover-content"> Blending AI-generated music with listener ratings and personalized recommendations enables large-scale human curation and raises questions about the ownership of AI-created content.</p>
 						<div class="read-paper-button">
-							<button class="centered-button" onclick="window.open('https://computationalcreativity.net/iccc22/wp-content/uploads/2022/06/ICCC-2022_21S_Gordon-et-al..pdf', '_blank', 'noopener,noreferrer')">Paper</button>
+							<button class="centered-button" onclick="window.open('https://computationalcreativity.net/iccc22/wp-content/uploads/2022/06/ICCC-2022_21S_Gordon-et-al..pdf', '_blank', 'noopener,noreferrer')">ICCC Paper</button>
 						</div>
 					</div>
 				</div>
@@ -410,6 +405,20 @@
 					<h2 class="text-xl font-semibold black">Digital Enterprise Panel | MIT Sloan CIO Symposium</h2>
 					<div class="video-container">
 						<iframe src="https://www.youtube.com/embed/2uP5z-QMtKs?si=-q6L0YKZzJXzUv9o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">AI, Creative Ownership and Attribution | DigitalFUTURES</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/1WhaAZoSc0k?si=f1lQErZgNNkzBb_f" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+				<div class="video-box">
+					<h2 class="text-xl font-semibold black">The Law and NLP | NLLP Workshop @ EMNLP</h2>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/NY-SxAVUaqk?si=XiC8zPLBQCGBMD-V&amp;start=15452" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 				</div>
 
@@ -452,20 +461,6 @@
 					<h2 class="text-xl font-semibold black">CBDC & Privacy Technology | FNA</h2>
 					<div class="video-container">
 						<iframe src="https://www.youtube.com/embed/i9e8BRgeBFM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-
-				<div class="video-box">
-					<h2 class="text-xl font-semibold black">AI, Creative Ownership and Attribution | DigitalFUTURES</h2>
-					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/1WhaAZoSc0k?si=f1lQErZgNNkzBb_f" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-
-				<div class="video-box">
-					<h2 class="text-xl font-semibold black">The Law and NLP | NLLP Workshop @ EMNLP</h2>
-					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/NY-SxAVUaqk?si=XiC8zPLBQCGBMD-V&amp;start=15452" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 				</div>
 
