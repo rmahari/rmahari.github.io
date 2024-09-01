@@ -588,6 +588,14 @@
 			scrollCue.addEventListener('mouseup', stopAutoScroll);
 			scrollCue.addEventListener('mouseleave', stopAutoScroll); // Also stop if the mouse leaves the button area
 
+			// Add touch events for mobile
+			scrollCue.addEventListener('touchstart', function() {
+				startAutoScroll('news-carousel');
+			});
+
+			scrollCue.addEventListener('touchend', stopAutoScroll);
+			scrollCue.addEventListener('touchleave', stopAutoScroll);
+
 			// Make functions available globally if needed
 			window.scrollToSection = scrollToSection;
 			window.updateContent = updateContent;
