@@ -10,8 +10,206 @@ then a list of links to the different sections
 
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
-    <meta charset="UTF-8">
-    <title>Mission Control</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robert Mahari</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // To avoid email scrapers, we use this
+        const emailContainer = document.getElementById('email-container');
+        const emailName = '&#114;&#109;&#97;&#104;&#97;&#114;&#105;';
+        const emailDomain = '&#109;&#105;&#116;&#46;&#101;&#100;&#117;';
+        const emailLink = `<a href="mailto:${emailName}@${emailDomain}" class="navy">${emailName}@${emailDomain}</a>`;
+        emailContainer.innerHTML = emailLink;
+
+        // Scroll to section
+        function scrollToSection(id) {
+          const section = document.getElementById(id);
+          const yOffset = -80; // Adjust the offset value as needed
+          const y =
+            section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+
+        // Change header text with HTML
+        function updateContent(title, content) {
+          document.getElementById('header-title').innerText = title;
+          document.getElementById('header-content').innerHTML = content; // Use innerHTML to render HTML tags
+        }
+
+        // Auto scroll function for the carousel
+        let autoScrollAnimation; // Variable to store the animation frame ID
+
+        function startAutoScroll(carouselId) {
+          const carousel = document.getElementById(carouselId);
+          const scrollAmount = carousel.scrollWidth - carousel.clientWidth;
+          const duration = 5000; // 5 seconds
+          const start = carousel.scrollLeft;
+          const startTime = performance.now();
+
+          function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            carousel.scrollLeft = start + progress * scrollAmount;
+
+            if (progress < 1) {
+              autoScrollAnimation = requestAnimationFrame(step);
+            }
+          }
+
+          autoScrollAnimation = requestAnimationFrame(step);
+        }
+
+        function stopAutoScroll() {
+          if (autoScrollAnimation) {
+            cancelAnimationFrame(autoScrollAnimation);
+            autoScrollAnimation = null;
+          }
+        }
+
+        // Attach mouse events to the scroll cue
+        const scrollCue = document.querySelector('.scroll-cue');
+        scrollCue.addEventListener('mousedown', function () {
+          startAutoScroll('news-carousel');
+        });
+
+        scrollCue.addEventListener('mouseup', stopAutoScroll);
+        scrollCue.addEventListener('mouseleave', stopAutoScroll); // Also stop if the mouse leaves the button area
+
+        // Add touch events for mobile
+        scrollCue.addEventListener('touchstart', function () {
+          startAutoScroll('news-carousel');
+        });
+
+        scrollCue.addEventListener('touchend', stopAutoScroll);
+        scrollCue.addEventListener('touchleave', stopAutoScroll);
+
+        // Make functions available globally if needed
+        window.scrollToSection = scrollToSection;
+        window.updateContent = updateContent;
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const seeMoreButton = document.getElementById('see-more-videos');
+        const hiddenVideos = document.querySelectorAll('.hidden-videos');
+
+        seeMoreButton.addEventListener('click', function () {
+          hiddenVideos.forEach(function (video) {
+            if (video.style.display === 'none') {
+              video.style.display = 'flex'; // or "grid" if needed
+            } else {
+              video.style.display = 'none';
+            }
+          });
+
+          // Update button text based on visibility
+          if (seeMoreButton.textContent === 'See More') {
+            seeMoreButton.textContent = 'See Less';
+          } else {
+            seeMoreButton.textContent = 'See More';
+          }
+        });
+      });
+    </script>
+  </head>
+
+    <!-- Header -->
+
+    <div id="home" class="container mx-auto p-8 md:px-12 container-main align-center">
+      <div class="flex flex-col md:flex-row justify-center items-center pt-8 md:py-12 md:space-x-8">
+        <div class="text-center align-center mb-6 md:mb-0">
+          <img
+            src="images/mission-control.png"
+            alt="Robert Mahari"
+            class="circle-image w-48 md:w-96 mx-auto md:mx-0 mb-4 aspect-square object-scale-down"
+          />
+          
+          <div class="text-xl font-semibold black flex justify-center space-x-4 mt-2">
+            <div class="mt-4">
+            <a href="https://robertmahari.com" target="_blank" class="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">To Robert Mahari's Home Page</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-left md:text-left max-w-md pt-8 md:px-8">
+        <!-- About me Section -->
+        <p id="header-title" class="text-2xl font-semibold black mb-2">
+        Welcome to Legal Mission Control
+        </p>
+        <p id="header-content" class="black">
+        Step into the future of legal practice! In this immersive session, we will introduce you to the lawyers 
+        of tomorrow—AI-augmented professionals who have redefined the boundaries of legal work. Through the lens of 
+        these future practitioners, we’ll explore how AI-driven tools, from automated research and drafting to 
+        computable contracts and predictive legal simulators, have transformed the way they serve their clients.
+        <br /><br />
+        But innovation doesn't come without challenges. As we journey through the future, you will see how the 
+        legal community has tackled issues like bias, reliability, privacy, and the human dimension of justice. 
+        Through the examples of these forward-thinking lawyers, we will learn how they overcame these obstacles 
+        to build a legal system that is faster, fairer, and more responsive to society’s needs.
+        <br /><br />
+        Join us on this unique visit to the future, and discover how you can be part of shaping the 
+        technology-powered legal practice of tomorrow. The reading list below provides examples of research on 
+        these topics.
+        </p>
+    </div>
+    </div>
+    </div>
+
+    <!-- Reading List -->
+    <div id="reading-list" class="section scroll-offset">
+        <h2 class="section-title text-2xl">Reading List</h2>
+
+        <h3 class="text-xl font-semibold mt-4">The future of in-house practice</h3>
+        <ul class="list-disc list-inside ml-5 mt-2">
+            <li><a href="https://arxiv.org/abs/2311.09356" class="custom-link" target="_blank">LePaRD: A Large-Scale Dataset of Judges Citing Precedents</a> - A dataset to enable hallucination-free legal retrieval</li>
+            <li><a href="https://www.arxiv.org/abs/2410.00725" class="custom-link" target="_blank">Early Career Citations Capture Judicial Idiosyncrasies and Predict Judgments</a> - Capturing judge's idiosyncracies</li>
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716" class="custom-link" target="_blank">Litigation Finance at Trial: Model and Data</a> - The impact of litigation funding on legal practice</li>
+            <li><a href="https://arxiv.org/abs/2408.16863" class="custom-link" target="_blank">Addressing Information Asymmetry in Legal Disputes</a> - Using data to rank law firms</li>
+            <li><a href="https://law.stanford.edu/2021/05/12/computable-contracts-and-insurance-an-introduction/" class="custom-link" target="_blank">Computable contracts and insurance</a> - How automated agreements enable flexibility</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-4">The future of legal aid</h3>
+        <ul class="list-disc list-inside ml-5 mt-2">
+            <li><a href="https://aclanthology.org/2024.acl-long.388/" class="custom-link" target="_blank">Leveraging Large Language Models for Learning Complex Legal Concepts through Storytelling</a> - Evaluating human-computer interaction</li>
+            <li><a href="https://aclanthology.org/2023.findings-emnlp.224/" class="custom-link" target="_blank">The Law and NLP: Bridging Disciplinary Disconnects</a> - Access to justice as a goal of legal technology</li>
+        </ul>
+
+
+        <h3 class="text-xl font-semibold mt-4">The future of regulation</h3>
+        <ul class="list-disc list-inside ml-5 mt-2">
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4753029" class="custom-link" target="_blank">Regulation by Design: A New Paradigm for Regulating AI Systems</a> - Embedding regulatory objectives into AI</li>
+            <li><a href="https://www.networklawreview.org/computational-one/" class="custom-link" target="_blank">Legal Dynamism</a> - Flexible and dynamic regulations for AI systems</li>
+        </ul>
+    </div>
+
+
+
+  <footer class="bg-blue-100 mt-8 py-4 pt-2 pb-2 text-center">
+    <p class="text-base black">
+      Website built from scratch with help from ChatGPT, DALL·E 3, Midjourney,
+      and <a href="https://tobin.page" class="custom-link">Tobin South</a>
+    </p>
+  </footer>
 </html>
+
