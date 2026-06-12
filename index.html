@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Robert Mahari is the founder of Akiva AI and a computational law researcher with a JD-PhD from Harvard Law School and the MIT Media Lab."
+    />
     <title>Robert Mahari</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,8 +32,8 @@
       document.addEventListener('DOMContentLoaded', function () {
         // To avoid email scrapers, we use this
         const emailContainer = document.getElementById('email-container');
-        const emailName = '&#114;&#109;&#97;&#104;&#97;&#114;&#105;';
-        const emailDomain = '&#109;&#105;&#116;&#46;&#101;&#100;&#117;';
+        const emailName = '&#114;&#111;&#98;&#101;&#114;&#116;';
+        const emailDomain = '&#97;&#107;&#105;&#118;&#97;&#46;&#108;&#101;&#103;&#97;&#108;';
         const emailLink = `<a href="mailto:${emailName}@${emailDomain}" class="navy">${emailName}@${emailDomain}</a>`;
         emailContainer.innerHTML = emailLink;
 
@@ -40,12 +44,6 @@
           const y =
             section.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-
-        // Change header text with HTML
-        function updateContent(title, content) {
-          document.getElementById('header-title').innerText = title;
-          document.getElementById('header-content').innerHTML = content; // Use innerHTML to render HTML tags
         }
 
         // Auto scroll function for the carousel
@@ -97,7 +95,6 @@
 
         // Make functions available globally if needed
         window.scrollToSection = scrollToSection;
-        window.updateContent = updateContent;
       });
 
       document.addEventListener('DOMContentLoaded', function () {
@@ -160,7 +157,7 @@
               href="javascript:void(0)"
               onclick="scrollToSection('news')"
               class="text-base sm:text-xl font-semibold"
-              >News</a
+              >Press</a
             >
           </li>
         </ul>
@@ -198,8 +195,14 @@
               rel="noopener noreferrer"
               ><i class="ai ai-google-scholar"></i
             ></a>
+            <a
+              href="https://akiva.legal"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-globe"></i
+            ></a>
           </div>
-          <div id="email-container" class="text-xl black">rmahari@mit.edu</div>
+          <div id="email-container" class="text-xl black"></div>
           <!-- Email container to avoid email scrapers -->
           <p
             class="text-xl font-semibold black mt-2 flex justify-center items-center"
@@ -210,58 +213,31 @@
         <div class="text-left md:text-left max-w-md pt-8 md:px-8">
           <!-- About me Section -->
           <p id="header-title" class="text-2xl font-semibold black mb-2">
-            About me
+            About
           </p>
           <p id="header-content" class="black">
-	    I'm the founder & CEO of Akiva AI, a company that develops bespoke AI solutions for law firms and in-house legal teams. Previously, I served as the associate director of Stanford's CodeX Center. 
-	    I received a JD-PhD degree from Harvard Law School and the MIT
-            Media Lab in Legal Artificial Intelligence. 
-	    My work focuses on <b>Computational Law</b>: leveraging
-            computation to analyze, improve, and extend the study and practice
-            of law. <br /><br />
-            My research aims to bridge the gap between technology and law to
-            surface new quantitative insights into jurisprudential systems and
-            to identify computationally-enabled approaches to the practice of
-            law. By formalizing research around computational law, I aim to
-            deepen our understanding of legal processes, while building tools
-            that improve legal practice, expand access to justice, and increase
-            judicial efficacy.
+            Robert Mahari is the founder of
+            <a
+              href="https://akiva.legal"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-link"
+              >Akiva</a
+            >, which empowers legal organizations to bring AI into the systems
+            and practices they already rely on. Akiva supports every stage of
+            AI transformation, combining custom AI development on clients'
+            existing tools and data with AI-native advisory.
             <br /><br />
-            I also study the technological transformation of the legal
-            profession and its effect on how organizations manage legal services
-            and risks. To this end, I collaborate with private and public
-            entities around the world to prototype practice-oriented
-            computational legal solutions, deploying and studying computational
-            law in the real world.
+            Previously, Robert served as Associate Director of Stanford's CodeX
+            Center for Legal Informatics. He holds a joint JD-PhD from the MIT
+            Media Lab and Harvard Law School, focused on legal AI, and serves
+            on the advisory boards of several legal tech companies.
+            <br /><br />
+            His research on legal AI has been published in venues including
+            <i>Science</i>, <i>Nature Machine Intelligence</i>, and
+            <i>Nature Computational Science</i>, with coverage in the New York
+            Times and the Washington Post.
           </p>
-          <!-- New Buttons Section -->
-          <div class="mt-4 flex flex-wrap justify-center gap-2 sm:gap-4 mb-4">
-            <button
-              onclick="updateContent('About me', 'I'm founder & CEO of Akiva AI, a company that develops bespoke AI solutions for law firms and in-house legal teams. Previously, I served as the associate director of Stanford's CodeX Center. I received a JD-PhD degree from Harvard Law School and the MIT Media Lab in Legal Artificial Intelligence.My work focuses on <b>Computational Law</b>: : leveraging computation to analyze, improve, and extend the study and practice of law.<br><br>My research aims to bridge the gap between technology and law to surface new quantitative insights into jurisprudential systems and to identify computationally-enabled approaches to the practice of law. By formalizing research around computational law, I aim to deepen our understanding of legal processes, while building tools that improve legal practice, expand access to justice, and increase judicial efficacy.<br><br>I also study the technological transformation of the legal profession and its effect on how organizations manage legal services and risks. To this end, I collaborate with private and public entities around the world to prototype practice-oriented computational legal solutions, deploying and studying computational law in the real world.')"
-              class="text-sm font-semibold black bg-gray-200 px-3 py-1 sm:px-4 sm:py-2 rounded hover:custom-button-color:hover custom-button-color"
-            >
-              About
-            </button>
-            <button
-              onclick="updateContent('Business Implications', 'My work in computational law merges business, computation, and law to provide practical insights for managers on legal and regulatory issues, especially those related to AI. <br><br>On the one hand, my work helps managers and strategists leverage internal and external legal resources more effectively, for example, by identifying optimal legal strategies, outcome-based rankings of law firms to enable informed law firm selection, tools for the development of the most persuasive legal arguments, and models to understand the dynamics of third party litigation funding. <br><br>On the other hand, corporate strategies around AI adoption can be complicated by legal and regulatory concerns. The Compliance by Design framework can help businesses develop AI systems that verifiably comply with regulatory objectives and reduce the risk of running afoul of the increasingly complex set of AI laws. This approach is exemplified by the Data Provenance Project, which provides a comprehensive audit of AI training data, including data licenses, sources, and provenance.')"
-              class="text-sm font-semibold black bg-gray-200 px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-gray-300"
-            >
-              Business
-            </button>
-            <button
-              onclick="updateContent('Legal Implications', 'My research in computational law revolves around three high-level themes: (1) understanding legal systems empirically using advanced computational methods, (2) building computational tools to extend the abilities of legal practitioners and furthering access to justice, and (3) identifying new computationally-enabled regulatory interventions. The rise of artificial intelligence (AI) has the potential to transform legal scholarship by offering new methods for empirical work, changing the legal profession, and raising new questions around AI regulation. <br><br>Both legal academia and practice can benefit from computational methods, however, this work also risks treating law as a mere sandbox for technology, trivializing the human values underlying legal institutions and rules. When deploying computational tools to study legal systems or improve legal practice, I seek to extend rather than replace the human dimension of law. By bridging across disciplines, I hope to communicate technical developments and possibilities to the legal community while contributing to the responsible and thoughtful deployment of computation in the law.')"
-              class="text-sm font-semibold black bg-gray-200 px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-gray-300"
-            >
-              Legal
-            </button>
-            <button
-              onclick="updateContent('Policy Implications', 'Computational approaches are not only relevant to empirical legal study and legal practice, but they can also enable new approaches to regulation and provide valuable information to regulators and market participants. On the one hand, regulation of new technologies like AI ought to be grounded in a firm understanding of the technology and computational research can provide these insights. On the other hand, computational approaches can also be used to express regulations in new ways through approaches like regulation by design and legal dynamism.')"
-              class="text-sm font-semibold black bg-gray-200 px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-gray-300"
-            >
-              Policy
-            </button>
-            <!--<button onclick="updateContent('Technical Contributions', 'Dummy text for Technical Contributions.')" class="text-sm font-semibold black bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Technical</button> -->
-          </div>
         </div>
       </div>
     </div>
@@ -303,9 +279,9 @@
             <div class="read-paper-button mt-auto">
               <button
                 class="centered-button"
-                onclick="window.open('', '_blank', 'noopener,noreferrer')"
+                onclick="window.open('https://arxiv.org/abs/2501.15552', '_blank', 'noopener,noreferrer')"
               >
-                TBA
+                Preprint
               </button>
             </div>
           </div>
@@ -319,15 +295,15 @@
             <h1>Quantifying Judicial Impartiality</h1>
             <p class="hover-content">
               We use judges' early career citations to capture their
-              idiosyncracies and we find that a significant minority of judges
-              appear to routinely rely on extreneous factors.
+              idiosyncrasies and we find that a significant minority of judges
+              appear to routinely rely on extraneous factors.
             </p>
             <div class="read-paper-button mt-auto">
               <button
                 class="centered-button"
-                onclick="window.open('', '_blank', 'noopener,noreferrer')"
+                onclick="window.open('https://arxiv.org/abs/2410.00725', '_blank', 'noopener,noreferrer')"
               >
-                TBA
+                Preprint
               </button>
             </div>
           </div>
@@ -342,14 +318,14 @@
             <p class="hover-content">
               Widely used law firm rankings focus on reputation and we show they
               have little to do with trial outcomes. We present a data-driven
-              ranking approach that captures law firm's actual performance.
+              ranking approach that captures law firms' actual performance.
             </p>
             <div class="read-paper-button mt-auto">
               <button
                 class="centered-button"
-                onclick="window.open('', '_blank', 'noopener,noreferrer')"
+                onclick="window.open('https://www.nature.com/articles/s43588-025-00899-2', '_blank', 'noopener,noreferrer')"
               >
-                TBA
+                Nature Computational Science
               </button>
             </div>
           </div>
@@ -363,12 +339,57 @@
             <h1>Litigation Finance at Trial: Model and Data</h1>
             <p class="hover-content">
               Grounded in empirical data, we explore how litigation finance
-              affects the way litgants and law firms behave.
+              affects the way litigants and law firms behave.
             </p>
             <div class="read-paper-button mt-auto">
               <button
                 class="centered-button"
                 onclick="window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716', '_blank', 'noopener,noreferrer')"
+              >
+                Preprint
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_red/6.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>The Determinants of Judicial Promotion</h1>
+            <p class="hover-content">
+              Drawing on more than 36,000 judge-year observations since 1930,
+              we find that political alignment with the sitting president is
+              the strongest predictor of promotion from district to appellate
+              courts.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://arxiv.org/abs/2604.13473', '_blank', 'noopener,noreferrer')"
+              >
+                Preprint
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_red/7.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>Predicting Civil Litigation Outcomes</h1>
+            <p class="hover-content">
+              Machine learning on more than 800,000 court filings predicts
+              wins, losses, and settlements, and reveals how case complexity
+              and settlement dynamics evolve over the course of litigation.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://arxiv.org/abs/2605.06151', '_blank', 'noopener,noreferrer')"
               >
                 Preprint
               </button>
@@ -477,9 +498,9 @@
           <div class="square-content p-4">
             <h1>LLMs for Learning Complex Legal Concepts</h1>
             <p class="hover-content">
-              LLM generated can help individuals understand complex legal
-              concepts by generating an illustrative story. This especially
-              helps non-native English speakers in their understanding.
+              LLM-generated stories can help individuals understand complex
+              legal concepts. This especially helps non-native English speakers
+              in their understanding.
             </p>
             <div class="read-paper-button mt-auto">
               <button
@@ -487,6 +508,28 @@
                 onclick="window.open('https://aclanthology.org/2024.acl-long.388/', '_blank', 'noopener,noreferrer')"
               >
                 ACL
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_green/6.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>Demystifying AI for Lawyers</h1>
+            <p class="hover-content">
+              A practical white paper on how legal professionals can adopt AI
+              responsibly: what the technology can and cannot do, and how to
+              use it safely in practice.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://www.paxton.ai/whitepaper/demystifying-ai-for-lawyers', '_blank', 'noopener,noreferrer')"
+              >
+                White Paper
               </button>
             </div>
           </div>
@@ -573,6 +616,40 @@
               >
                 ICML
               </button>
+              <button
+                class="centered-button"
+                onclick="window.open('https://openreview.net/forum?id=G5DziesYxL', '_blank', 'noopener,noreferrer')"
+              >
+                ICLR
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_yellow/8.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>Consent in Crisis: The Rapid Decline of the AI Data Commons</h1>
+            <p class="hover-content">
+              The first large-scale, longitudinal audit of the consent
+              protocols of the web domains underlying AI training corpora,
+              documenting a rapid rise in restrictions on data used for AI.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://papers.nips.cc/paper_files/paper/2024/hash/c3738949a80306cc48a8ea8ba0560f9d-Abstract-Datasets_and_Benchmarks_Track.html', '_blank', 'noopener,noreferrer')"
+              >
+                NeurIPS
+              </button>
+              <button
+                class="centered-button"
+                onclick="window.open('https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html', '_blank', 'noopener,noreferrer')"
+              >
+                NYT Coverage
+              </button>
             </div>
           </div>
         </div>
@@ -585,7 +662,7 @@
             <h1>Preparing for Addictive Intelligence</h1>
             <p class="hover-content">
               Individuals are starting to form connections with AI companions.
-              Although this can can harm users, this area is difficult to
+              Although this can harm users, this area is difficult to
               regulate. Regulation by Design and Legal Dynamism might offer
               solutions.
             </p>
@@ -595,6 +672,12 @@
                 onclick="window.open('https://www.technologyreview.com/2024/08/05/1095600/we-need-to-prepare-for-addictive-intelligence/', '_blank', 'noopener,noreferrer')"
               >
                 MIT Technology Review
+              </button>
+              <button
+                class="centered-button"
+                onclick="window.open('https://mit-serc.pubpub.org/pub/iopjyxcx/release/2', '_blank', 'noopener,noreferrer')"
+              >
+                MIT Case Study
               </button>
             </div>
           </div>
@@ -617,6 +700,57 @@
                 onclick="window.open('https://www.networklawreview.org/computational-one/', '_blank', 'noopener,noreferrer')"
               >
                 Network Law Review
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_yellow/9.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>Authenticated Delegation for AI Agents</h1>
+            <p class="hover-content">
+              As AI agents act on behalf of people, services need ways to
+              verify who authorized an agent and what it is permitted to do.
+              We propose extending existing authorization standards to AI
+              agents.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://openreview.net/forum?id=9skHxuHyM4', '_blank', 'noopener,noreferrer')"
+              >
+                ICML
+              </button>
+              <button
+                class="centered-button"
+                onclick="window.open('https://arxiv.org/abs/2501.09674', '_blank', 'noopener,noreferrer')"
+              >
+                Preprint
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="square-box bg-common border border-gray-300 rounded"
+          style="background-image: url('images/abstract_images_yellow/1.jpg')"
+        >
+          <div class="square-content p-4">
+            <h1>Sentencing the Brussels Effect</h1>
+            <p class="hover-content">
+              Written with a lead author of the EU AI Act, we examine how the
+              Act treats AI sentencing tools and what other jurisdictions
+              should consider before adopting its approach.
+            </p>
+            <div class="read-paper-button mt-auto">
+              <button
+                class="centered-button"
+                onclick="window.open('https://read.dukeupress.edu/fsr/article/37/3-4/287/403306/Sentencing-the-Brussels-EffectThe-Limits-of-the-EU', '_blank', 'noopener,noreferrer')"
+              >
+                Federal Sentencing Reporter
               </button>
             </div>
           </div>
@@ -679,7 +813,7 @@
                 class="centered-button"
                 onclick="window.open('https://law.stanford.edu/wp-content/uploads/2021/04/pentland-computational-antitrust-project.pdf', '_blank', 'noopener,noreferrer')"
               >
-                Stanford Computational Antritrust
+                Stanford Computational Antitrust
               </button>
             </div>
           </div>
@@ -705,6 +839,16 @@
 				</div>
 			</div> -->
       </div>
+
+      <p class="text-center mt-8">
+        <a
+          href="https://scholar.google.com/citations?user=3qM8lPsAAAAJ&hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="custom-link"
+          >Full publication list on Google Scholar &rarr;</a
+        >
+      </p>
     </div>
 
     <!--Speaking-->
@@ -712,6 +856,20 @@
       <h2 class="text-2xl font-bold black mb-4">Speaking</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-8" >
+        <div class="video-box flex flex-col justify-between">
+          <h2 class="text-xl font-semibold black">
+            Jurimetrics Reloaded | CodeX FutureLaw 2026
+          </h2>
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/9ms6JFtMZOg"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
         <div class="video-box flex flex-col justify-between">
           <h2 class="text-xl font-semibold black">
             The Future of Law: AI Powered Justice? | TEDxBoston
@@ -728,11 +886,11 @@
 
         <div class="video-box flex flex-col justify-between">
           <h2 class="text-xl font-semibold black">
-            Inaugural Speech | University of Warsaw
+            The Battle of the Robolawyers | CodeX FutureLaw 2025
           </h2>
           <div class="video-container">
             <iframe
-              src="https://www.youtube.com/embed/OLo7ili_KZk?start=5092"
+              src="https://www.youtube.com/embed/jgG80JBRa4o"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -742,25 +900,11 @@
 
         <div class="video-box flex flex-col justify-between">
           <h2 class="text-xl font-semibold black">
-            AI, Democracy, and Humanity | Boston Global Forum
+            Addictive Intelligence | The Lawfare Podcast
           </h2>
           <div class="video-container">
             <iframe
-              src="https://www.youtube.com/embed/GR_nYwI0_jE?si=X8WPrYH3kq9w_gP9"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-
-        <div class="video-box flex flex-col justify-between">
-          <h2 class="text-xl font-semibold black">
-            The Science of Breakthroughs | TEDxBoston
-          </h2>
-          <div class="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/g7JdrChzZEw?si=tL65bIpueyMNG55w"
+              src="https://www.youtube.com/embed/K2L69l4bDEU"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -769,6 +913,70 @@
         </div>
 
         <!--Hidden Videos-->
+
+        <div class="hidden-videos" style="display: none">
+          <div class="video-box flex flex-col justify-between w-full">
+            <h2 class="text-xl font-semibold black">
+              Regulating Addictive AI | Pondering AI Podcast
+            </h2>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/MponE_HpVqo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden-videos" style="display: none">
+          <div class="video-box flex flex-col justify-between w-full">
+            <h2 class="text-xl font-semibold black">
+              Inaugural Speech | University of Warsaw
+            </h2>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/OLo7ili_KZk?start=5092"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden-videos" style="display: none">
+          <div class="video-box flex flex-col justify-between w-full">
+            <h2 class="text-xl font-semibold black">
+              AI, Democracy, and Humanity | Boston Global Forum
+            </h2>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/GR_nYwI0_jE?si=X8WPrYH3kq9w_gP9"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden-videos" style="display: none">
+          <div class="video-box flex flex-col justify-between w-full">
+            <h2 class="text-xl font-semibold black">
+              The Science of Breakthroughs | TEDxBoston
+            </h2>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/g7JdrChzZEw?si=tL65bIpueyMNG55w"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
 
         <div class="hidden-videos" style="display: none">
           <div class="video-box flex flex-col justify-between w-full">
@@ -901,7 +1109,7 @@
         <div class="hidden-videos" style="display: none">
           <div class="video-box flex flex-col justify-between w-full">
             <h2 class="text-xl font-semibold black">
-              Artifical.fm | law.MIT.edu
+              Artificial.fm | law.MIT.edu
             </h2>
             <div class="video-container">
               <iframe
@@ -943,9 +1151,69 @@
 
     <!--News-->
     <div id="news" class="section scroll-offset">
-      <h2 class="text-2xl font-bold black mb-4">News</h2>
+      <h2 class="text-2xl font-bold black mb-4">Press & Media</h2>
 
       <div class="carousel" id="news-carousel">
+        <a
+          href="https://www.threecrownsllp.com/news/three-crowns-co-hosts-generative-legal-inaugural-gathering-with-stanford-codex/"
+          class="news-card"
+          style="background-image: url('images/abstract_images_red/8.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>Generative Legal</h4>
+            <h3>Inaugural Generative Legal gathering at Stanford Law School</h3>
+          </div>
+        </a>
+        <a
+          href="https://www.mondaq.com/unitedstates/arbitration-dispute-resolution/1761328/who-picks-the-arbitrator-you-or-the-algorithm"
+          class="news-card"
+          style="background-image: url('images/abstract_images_green/8.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>JAMS</h4>
+            <h3>Who Picks the Arbitrator — You or the Algorithm?</h3>
+          </div>
+        </a>
+        <a
+          href="https://www.lawnext.com/2025/06/paxton-releases-white-paper-by-harvard-jd-and-mit-phd-researcher-robert-mahari-on-responsible-ai-use-in-legal-practice.html"
+          class="news-card"
+          style="background-image: url('images/abstract_images_red/9.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>LawSites</h4>
+            <h3>White Paper on Responsible AI Use in Legal Practice</h3>
+          </div>
+        </a>
+        <a
+          href="https://www.techpolicy.press/ai-companions-and-the-law/"
+          class="news-card"
+          style="background-image: url('images/abstract_images_green/9.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>Tech Policy Press</h4>
+            <h3>AI Companions and the Law</h3>
+          </div>
+        </a>
+        <a
+          href="https://news.mit.edu/2024/study-large-language-models-datasets-lack-transparency-0830"
+          class="news-card"
+          style="background-image: url('images/abstract_images_red/1.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>MIT News</h4>
+            <h3>Transparency Is Often Lacking in LLM Training Datasets</h3>
+          </div>
+        </a>
+        <a
+          href="https://www.technologyreview.com/2024/08/12/1096202/how-people-actually-using-ai/"
+          class="news-card"
+          style="background-image: url('images/abstract_images_green/7.jpg')"
+        >
+          <div class="news-card-text">
+            <h4>MIT Technology Review</h4>
+            <h3>Here's How People Are Actually Using AI</h3>
+          </div>
+        </a>
         <a
           href="https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
           class="news-card"
@@ -1029,38 +1297,6 @@
           </div>
         </a>
         <a
-          href="https://www.thefashionlaw.com/generative-ai-is-a-minefield-for-copyright-law/"
-          class="news-card"
-          style="background-image: url('images/news/fashionlaw-artscience.png')"
-        >
-          <div class="news-card-text">
-            <h4>The Fashion Law</h4>
-            <h3>Generative AI Is a Minefield for Copyright Law</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.todayonline.com/commentary/commentary-why-generative-ai-minefield-copyright-law-2196586"
-          class="news-card"
-          style="background-image: url('images/news/todayonline-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>Today Online</h4>
-            <h3>Why generative AI is a minefield for copyright law</h3>
-          </div>
-        </a>
-        <a
-          href="https://newhampshirebulletin.com/2023/06/21/generative-ai-is-a-minefield-for-copyright-law/"
-          class="news-card"
-          style="
-            background-image: url('images/news/new-hampshire-bulletin-artscience.jpeg');
-          "
-        >
-          <div class="news-card-text">
-            <h4>New Hampshire Bulletin</h4>
-            <h3>Generative AI is a minefield for copyright law</h3>
-          </div>
-        </a>
-        <a
           href="https://www.law360.com/pulse/articles/1868346/open-source-dataset-aims-to-make-legal-ai-more-accurate"
           class="news-card"
           style="background-image: url('images/news/placeholder.png')"
@@ -1081,16 +1317,6 @@
           </div>
         </a>
         <a
-          href="https://flowingdata.com/2024/08/01/decline-in-data-for-ai-bots-to-scrape/"
-          class="news-card"
-          style="background-image: url('images/news/placeholder.png')"
-        >
-          <div class="news-card-text">
-            <h4>Flowing Data</h4>
-            <h3>Decline in data for AI bots to scrape</h3>
-          </div>
-        </a>
-        <a
           href="https://observer.com/2024/07/ai-training-data-crisis/"
           class="news-card"
           style="background-image: url('images/news/observer-dpi.png')"
@@ -1098,16 +1324,6 @@
           <div class="news-card-text">
             <h4>Observer</h4>
             <h3>AI Companies Are Running Out of Training Data</h3>
-          </div>
-        </a>
-        <a
-          href="https://futurism.com/the-byte/ai-companies-losing-training-data"
-          class="news-card"
-          style="background-image: url('images/news/placeholder.png')"
-        >
-          <div class="news-card-text">
-            <h4>Futurism: The Byte</h4>
-            <h3>Crisis Looms for AI Companies</h3>
           </div>
         </a>
         <a
@@ -1168,7 +1384,7 @@
           style="background-image: url('images/news/brighttalk-artscience.png')"
         >
           <div class="news-card-text">
-            <h4>BirghtTalk</h4>
+            <h4>BrightTALK</h4>
             <h3>AI: Impact, challenges and responsibilities</h3>
           </div>
         </a>
@@ -1178,7 +1394,7 @@
           style="background-image: url('images/news/brighttalk-dpi.png')"
         >
           <div class="news-card-text">
-            <h4>BirghtTalk</h4>
+            <h4>BrightTALK</h4>
             <h3>Understand data provenance for AI</h3>
           </div>
         </a>
