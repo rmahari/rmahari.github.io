@@ -15,7 +15,7 @@
 
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -27,6 +27,8 @@
       integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
       crossorigin="anonymous"
     />
+
+    <script src="art.js"></script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -40,82 +42,28 @@
         // Scroll to section
         function scrollToSection(id) {
           const section = document.getElementById(id);
-          const yOffset = -80; // Adjust the offset value as needed
+          const yOffset = -80;
           const y =
             section.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
 
-        // Auto scroll function for the carousel
-        let autoScrollAnimation; // Variable to store the animation frame ID
-
-        function startAutoScroll(carouselId) {
-          const carousel = document.getElementById(carouselId);
-          const scrollAmount = carousel.scrollWidth - carousel.clientWidth;
-          const duration = 5000; // 5 seconds
-          const start = carousel.scrollLeft;
-          const startTime = performance.now();
-
-          function step(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            carousel.scrollLeft = start + progress * scrollAmount;
-
-            if (progress < 1) {
-              autoScrollAnimation = requestAnimationFrame(step);
-            }
-          }
-
-          autoScrollAnimation = requestAnimationFrame(step);
-        }
-
-        function stopAutoScroll() {
-          if (autoScrollAnimation) {
-            cancelAnimationFrame(autoScrollAnimation);
-            autoScrollAnimation = null;
-          }
-        }
-
-        // Attach mouse events to the scroll cue
-        const scrollCue = document.querySelector('.scroll-cue');
-        scrollCue.addEventListener('mousedown', function () {
-          startAutoScroll('news-carousel');
-        });
-
-        scrollCue.addEventListener('mouseup', stopAutoScroll);
-        scrollCue.addEventListener('mouseleave', stopAutoScroll); // Also stop if the mouse leaves the button area
-
-        // Add touch events for mobile
-        scrollCue.addEventListener('touchstart', function () {
-          startAutoScroll('news-carousel');
-        });
-
-        scrollCue.addEventListener('touchend', stopAutoScroll);
-        scrollCue.addEventListener('touchleave', stopAutoScroll);
-
-        // Make functions available globally if needed
         window.scrollToSection = scrollToSection;
-      });
 
-      document.addEventListener('DOMContentLoaded', function () {
+        // See more videos
         const seeMoreButton = document.getElementById('see-more-videos');
         const hiddenVideos = document.querySelectorAll('.hidden-videos');
 
         seeMoreButton.addEventListener('click', function () {
           hiddenVideos.forEach(function (video) {
-            if (video.style.display === 'none') {
-              video.style.display = 'flex'; // or "grid" if needed
-            } else {
-              video.style.display = 'none';
-            }
+            video.style.display =
+              video.style.display === 'none' || video.style.display === ''
+                ? 'flex'
+                : 'none';
           });
 
-          // Update button text based on visibility
-          if (seeMoreButton.textContent === 'See More') {
-            seeMoreButton.textContent = 'See Less';
-          } else {
-            seeMoreButton.textContent = 'See More';
-          }
+          seeMoreButton.textContent =
+            seeMoreButton.textContent === 'See More' ? 'See Less' : 'See More';
         });
       });
     </script>
@@ -179,7 +127,7 @@
             alt="Robert Mahari"
             class="circle-image w-48 md:w-96 mx-auto md:mx-0 mb-4 aspect-square object-scale-down"
           />
-          <h1 class="text-5xl font-bold black">Robert Mahari</h1>
+          <h1 class="text-5xl font-bold black serif">Robert Mahari</h1>
           <div
             class="text-xl font-semibold black flex justify-center space-x-4 mt-2"
           >
@@ -211,8 +159,8 @@
           </p>
         </div>
         <div class="text-left md:text-left max-w-md pt-8 md:px-8">
-          <!-- About me Section -->
-          <p id="header-title" class="text-2xl font-semibold black mb-2">
+          <!-- About Section -->
+          <p id="header-title" class="text-2xl font-semibold black mb-2 serif">
             About
           </p>
           <p id="header-content" class="black">
@@ -243,609 +191,454 @@
     </div>
 
     <!-- Research Section -->
-    <!--Tool to cut image into equal parts: https://www.imgonline.com.ua/eng/cut-photo-into-pieces.php-->
 
     <div id="research" class="section scroll-offset">
-      <h2 class="section-title text-2xl">Research</h2>
+      <!-- Chapter I: Analyze -->
+      <div class="chapter theme-analyze">
+        <p class="kicker">Research &middot; I</p>
+        <h3 class="chapter-title">Analyze</h3>
+        <p class="chapter-def">
+          Using data and computation to understand how legal systems actually
+          behave &mdash; courts, judges, and the lawyers who appear before
+          them.
+        </p>
 
-      <!-- Research Block 1: Analyze -->
-      <div
-        class="grid-cols-1 min-[560px]:grid-cols-2 min-[1100px]:grid-cols-3 md:gap-8 gap-6 min-[1700px]:grid-cols-4 grid items-stretch"
-      >
-        <div
-          class="square-box bg-common border border-gray-300 rounded p-4 square-title-box"
-        >
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="Data-driven law firm rankings"
+            data-theme="analyze"
+          ></div>
           <div>
-            <h1>Analyze</h1>
-            <p class="text-center">
-              Computational law leverages advanced computational techniques—like
-              network science, natural language processing, and machine learning
-              to help us better understand how legal systems function.
+            <h4>
+              <a
+                href="https://www.nature.com/articles/s43588-025-00899-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Data-driven law firm rankings</a
+              >
+            </h4>
+            <p class="pub-desc">
+              Prestige-based rankings have little to do with how firms actually
+              perform at trial. An analysis of 60,000 lawsuits suggests a
+              better way to choose counsel.
+            </p>
+            <p class="pub-links">
+              <a
+                href="https://www.nature.com/articles/s43588-025-00899-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Nature Computational Science &middot; 2025</a
+              >
             </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/2.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Uncovering the universal dynamics of citation systems</h1>
-            <p class="hover-content">
-              Universal citation dynamics across knowledge systems and a
-              community-based citation model that better predicts future
-              citation trajectories.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2501.15552', '_blank', 'noopener,noreferrer')"
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="Early career citations capture judicial idiosyncrasies"
+            data-theme="analyze"
+          ></div>
+          <div>
+            <h4>
+              <a
+                href="https://arxiv.org/abs/2410.00725"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Early career citations capture judicial idiosyncrasies and
+                predict judgments</a
               >
-                Preprint
-              </button>
-            </div>
+            </h4>
+            <p class="pub-desc">
+              The citations a judge makes early in their career reveal
+              idiosyncrasies that persist &mdash; and a significant minority of
+              judges appear to routinely rely on extraneous factors.
+            </p>
+            <p class="pub-links">
+              <a
+                href="https://arxiv.org/abs/2410.00725"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Preprint &middot; 2024</a
+              >
+            </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/3.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Quantifying Judicial Impartiality</h1>
-            <p class="hover-content">
-              We use judges' early career citations to capture their
-              idiosyncrasies and we find that a significant minority of judges
-              appear to routinely rely on extraneous factors.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2410.00725', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-            </div>
+        <div class="pub-rows">
+          <div class="pub-row">
+            <span class="pub-year">2026</span>
+            <a
+              href="https://arxiv.org/abs/2605.06151"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Predicting civil litigation outcomes and the evolution of case
+              complexity</a
+            >
+            <span class="pub-venue">Preprint</span>
           </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/4.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Ranking Law Firms</h1>
-            <p class="hover-content">
-              Widely used law firm rankings focus on reputation and we show they
-              have little to do with trial outcomes. We present a data-driven
-              ranking approach that captures law firms' actual performance.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.nature.com/articles/s43588-025-00899-2', '_blank', 'noopener,noreferrer')"
-              >
-                Nature Computational Science
-              </button>
-            </div>
+          <div class="pub-row">
+            <span class="pub-year">2026</span>
+            <a
+              href="https://arxiv.org/abs/2604.13473"
+              target="_blank"
+              rel="noopener noreferrer"
+              >The determinants of judicial promotion: politics, prestige, and
+              performance</a
+            >
+            <span class="pub-venue">Preprint</span>
           </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/5.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Litigation Finance at Trial: Model and Data</h1>
-            <p class="hover-content">
-              Grounded in empirical data, we explore how litigation finance
-              affects the way litigants and law firms behave.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-            </div>
+          <div class="pub-row">
+            <span class="pub-year">2025</span>
+            <a
+              href="https://arxiv.org/abs/2501.15552"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Community-centric modeling of citation dynamics in science, law,
+              and patents</a
+            >
+            <span class="pub-venue">Preprint</span>
           </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/6.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>The Determinants of Judicial Promotion</h1>
-            <p class="hover-content">
-              Drawing on more than 36,000 judge-year observations since 1930,
-              we find that political alignment with the sitting president is
-              the strongest predictor of promotion from district to appellate
-              courts.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2604.13473', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_red/7.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Predicting Civil Litigation Outcomes</h1>
-            <p class="hover-content">
-              Machine learning on more than 800,000 court filings predicts
-              wins, losses, and settlements, and reveals how case complexity
-              and settlement dynamics evolve over the course of litigation.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2605.06151', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-            </div>
+          <div class="pub-row">
+            <span class="pub-year">2022</span>
+            <a
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4091716"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Litigation finance at trial: model and data</a
+            >
+            <span class="pub-venue">SSRN</span>
           </div>
         </div>
       </div>
 
-      <!-- Research Block 2: Improve -->
-      <div
-        class="grid-cols-1 min-[560px]:grid-cols-2 min-[1100px]:grid-cols-3 min-[1700px]:grid-cols-4 grid md:gap-8 gap-6 items-stretch mt-6 md:mt-8"
-      >
-        <div
-          class="square-box bg-common border border-gray-300 rounded p-4 square-title-box"
-        >
+      <!-- Chapter II: Improve -->
+      <div class="chapter theme-improve">
+        <p class="kicker">Research &middot; II</p>
+        <h3 class="chapter-title">Improve</h3>
+        <p class="chapter-def">
+          Building AI that extends what lawyers can do &mdash; and putting it
+          into practice responsibly, with access to justice as the goal.
+        </p>
+
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="LePaRD: a large-scale dataset of judges citing precedents"
+            data-theme="improve"
+          ></div>
           <div>
-            <h1>Improve</h1>
-            <p class="text-center">
-              Legal practice is deeply rooted in written language and so stands
-              to benefit immensely from the thoughtful and responsible
-              application of machine learning and NLP. Computational law brings
-              a practice-oriented perspective to the development of these
-              technologies in an effort to use technology to further access to
-              justice and sustainably transform legal services.
+            <h4>
+              <a
+                href="https://aclanthology.org/2024.acl-long.532.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LePaRD: a large-scale dataset of judges citing precedents</a
+              >
+            </h4>
+            <p class="pub-desc">
+              Millions of examples of federal judges quoting precedent in
+              context, grounding legal AI retrieval in how courts actually
+              cite.
+            </p>
+            <p class="pub-links">
+              <a
+                href="https://aclanthology.org/2024.acl-long.532.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ACL &middot; 2024</a
+              >
             </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_green/2.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>The Law and NLP: Bridging Disciplinary Disconnects</h1>
-            <p class="hover-content">
-              The slow uptake of NLP in legal practice may be exacerbated by a
-              disconnect between the needs of the legal community and the focus
-              of NLP researchers.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://aclanthology.org/2023.findings-emnlp.224.pdf', '_blank', 'noopener,noreferrer')"
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="The law and NLP: bridging disciplinary disconnects"
+            data-theme="improve"
+          ></div>
+          <div>
+            <h4>
+              <a
+                href="https://aclanthology.org/2023.findings-emnlp.224.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >The law and NLP: bridging disciplinary disconnects</a
               >
-                EMNLP Findings
-              </button>
-            </div>
+            </h4>
+            <p class="pub-desc">
+              The slow uptake of NLP in legal practice reflects a disconnect
+              between what the legal community needs and what researchers
+              build.
+            </p>
+            <p class="pub-links">
+              <a
+                href="https://aclanthology.org/2023.findings-emnlp.224.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >EMNLP Findings &middot; 2023</a
+              >
+            </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_green/3.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>LePaRD: A Large-Scale Dataset of Judges Citing Precedents</h1>
-            <p class="hover-content">
-              A massive collection of U.S. federal judicial citations to
-              precedent in context that facilitates work on legal passage
-              prediction, a challenging practice oriented legal retrieval and
-              reasoning task.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://aclanthology.org/2024.acl-long.532.pdf', '_blank', 'noopener,noreferrer')"
-              >
-                ACL
-              </button>
-            </div>
+        <div class="pub-rows">
+          <div class="pub-row">
+            <span class="pub-year">2025</span>
+            <a
+              href="https://www.paxton.ai/whitepaper/demystifying-ai-for-lawyers"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Demystifying AI for lawyers: a practical guide to responsible
+              adoption</a
+            >
+            <span class="pub-venue">White paper</span>
           </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_green/4.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>AutoLaw: Augmented Legal Reasoning</h1>
-            <p class="hover-content">
-              Introducing Legal Precedent Prediction (LPP), the task of
-              predicting relevant passages from precedential court decisions
-              given the context of a legal argument.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2106.16034', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://patents.google.com/patent/US20230419038A1/en', '_blank', 'noopener,noreferrer')"
-              >
-                Patent Pending
-              </button>
-            </div>
+          <div class="pub-row">
+            <span class="pub-year">2024</span>
+            <a
+              href="https://aclanthology.org/2024.acl-long.388/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Leveraging LLMs for learning complex legal concepts through
+              storytelling</a
+            >
+            <span class="pub-venue">ACL</span>
           </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_green/5.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>LLMs for Learning Complex Legal Concepts</h1>
-            <p class="hover-content">
-              LLM-generated stories can help individuals understand complex
-              legal concepts. This especially helps non-native English speakers
-              in their understanding.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://aclanthology.org/2024.acl-long.388/', '_blank', 'noopener,noreferrer')"
-              >
-                ACL
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_green/6.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Demystifying AI for Lawyers</h1>
-            <p class="hover-content">
-              A practical white paper on how legal professionals can adopt AI
-              responsibly: what the technology can and cannot do, and how to
-              use it safely in practice.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.paxton.ai/whitepaper/demystifying-ai-for-lawyers', '_blank', 'noopener,noreferrer')"
-              >
-                White Paper
-              </button>
-            </div>
+          <div class="pub-row">
+            <span class="pub-year">2021</span>
+            <a
+              href="https://arxiv.org/abs/2106.16034"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AutoLaw: augmented legal reasoning through legal precedent
+              prediction</a
+            >
+            <span class="pub-venue"
+              >Preprint &middot;
+              <a
+                href="https://patents.google.com/patent/US20230419038A1/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="font-size: inherit; color: inherit"
+                >patent</a
+              ></span
+            >
           </div>
         </div>
       </div>
 
-      <!-- Research Block 3: Extend -->
-      <div
-        class="grid-cols-1 min-[560px]:grid-cols-2 min-[1100px]:grid-cols-3 md:gap-8 min-[1700px]:grid-cols-4 grid gap-6 items-stretch mt-6 md:mt-8"
-      >
-        <div
-          class="square-box bg-common border border-gray-300 rounded p-4 square-title-box"
-        >
+      <!-- Chapter III: Extend -->
+      <div class="chapter theme-extend">
+        <p class="kicker">Research &middot; III</p>
+        <h3 class="chapter-title">Extend</h3>
+        <p class="chapter-def">
+          How law should respond to AI &mdash; and how computation can give
+          regulators, and regulation itself, new capabilities.
+        </p>
+
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="Art and the science of generative AI"
+            data-theme="extend"
+          ></div>
           <div>
-            <h1>Extend</h1>
-            <p class="text-center">
-              Computational law enables new approaches to regulation and provide
-              valuable information to regulators and market participants.
-              Computational approaches can be used to express regulations in new
-              ways and provide insights that allow lawmakers to regulate new
-              technologies like AI more effectively.
+            <h4>
+              <a
+                href="https://www.science.org/doi/full/10.1126/science.adh4451"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Art and the science of generative AI</a
+              >
+            </h4>
+            <p class="pub-desc">
+              What generative AI means for human creativity, ownership, and
+              copyright law.
+            </p>
+            <p class="pub-links">
+              <a
+                href="https://www.science.org/doi/full/10.1126/science.adh4451"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Science &middot; 2023</a
+              ><span class="sep">&middot;</span
+              ><a
+                href="https://arxiv.org/abs/2306.04141"
+                target="_blank"
+                rel="noopener noreferrer"
+                >White paper</a
+              ><span class="sep">&middot;</span
+              ><a
+                href="https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Op-ed</a
+              >
             </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/2.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Art and Science of Generative AI</h1>
-            <p class="hover-content">
-              Exploring the role of human creativity in generative AI.
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="Consent in crisis: the rapid decline of the AI data commons"
+            data-theme="extend"
+          ></div>
+          <div>
+            <h4>
+              <a
+                href="https://papers.nips.cc/paper_files/paper/2024/hash/c3738949a80306cc48a8ea8ba0560f9d-Abstract-Datasets_and_Benchmarks_Track.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Consent in crisis: the rapid decline of the AI data commons</a
+              >
+            </h4>
+            <p class="pub-desc">
+              The first large-scale audit of consent signals across the web
+              domains behind AI training corpora &mdash; the web is rapidly
+              closing itself off to AI.
             </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.science.org/doi/full/10.1126/science.adh4451', '_blank', 'noopener,noreferrer')"
+            <p class="pub-links">
+              <a
+                href="https://papers.nips.cc/paper_files/paper/2024/hash/c3738949a80306cc48a8ea8ba0560f9d-Abstract-Datasets_and_Benchmarks_Track.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NeurIPS &middot; 2024</a
+              ><span class="sep">&middot;</span
+              ><a
+                href="https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >New York Times coverage</a
               >
-                Science Perspective
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2306.04141', '_blank', 'noopener,noreferrer')"
-              >
-                Whitepaper
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473', '_blank', 'noopener,noreferrer')"
-              >
-                Op-Ed
-              </button>
-            </div>
+            </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/3.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Data Provenance Project</h1>
-            <p class="hover-content">
-              A large-scale audit of AI training data including data licenses,
-              sources, and provenance.
+        <div class="pub-featured">
+          <div
+            class="pub-thumb"
+            data-art="Addictive intelligence"
+            data-theme="extend"
+            data-seed-offset="1"
+          ></div>
+          <div>
+            <h4>
+              <a
+                href="https://www.technologyreview.com/2024/08/05/1095600/we-need-to-prepare-for-addictive-intelligence/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Preparing for addictive intelligence</a
+              >
+            </h4>
+            <p class="pub-desc">
+              People are forming real attachments to AI companions. The harms
+              are hard to regulate &mdash; regulation by design might offer a
+              way forward.
             </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.nature.com/articles/s42256-024-00878-8', '_blank', 'noopener,noreferrer')"
+            <p class="pub-links">
+              <a
+                href="https://www.technologyreview.com/2024/08/05/1095600/we-need-to-prepare-for-addictive-intelligence/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >MIT Technology Review &middot; 2024</a
+              ><span class="sep">&middot;</span
+              ><a
+                href="https://mit-serc.pubpub.org/pub/iopjyxcx/release/2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >MIT case study &middot; 2025</a
               >
-                Nature Machine Intelligence
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.regulations.gov/comment/COLC-2023-0006-9063', '_blank', 'noopener,noreferrer')"
-              >
-                Copyright Office Comment
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://proceedings.mlr.press/v235/longpre24b.html', '_blank', 'noopener,noreferrer')"
-              >
-                ICML
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://openreview.net/forum?id=G5DziesYxL', '_blank', 'noopener,noreferrer')"
-              >
-                ICLR
-              </button>
-            </div>
+            </p>
           </div>
         </div>
 
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/8.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Consent in Crisis: The Rapid Decline of the AI Data Commons</h1>
-            <p class="hover-content">
-              The first large-scale, longitudinal audit of the consent
-              protocols of the web domains underlying AI training corpora,
-              documenting a rapid rise in restrictions on data used for AI.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://papers.nips.cc/paper_files/paper/2024/hash/c3738949a80306cc48a8ea8ba0560f9d-Abstract-Datasets_and_Benchmarks_Track.html', '_blank', 'noopener,noreferrer')"
-              >
-                NeurIPS
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html', '_blank', 'noopener,noreferrer')"
-              >
-                NYT Coverage
-              </button>
-            </div>
+        <div class="pub-rows">
+          <div class="pub-row">
+            <span class="pub-year">2025</span>
+            <a
+              href="https://openreview.net/forum?id=9skHxuHyM4"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Position: AI agents need authenticated delegation</a
+            >
+            <span class="pub-venue">ICML</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2025</span>
+            <a
+              href="https://read.dukeupress.edu/fsr/article/37/3-4/287/403306/Sentencing-the-Brussels-EffectThe-Limits-of-the-EU"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Sentencing the Brussels effect: the limits of the EU's AI
+              rulebook</a
+            >
+            <span class="pub-venue">Federal Sentencing Reporter</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2024</span>
+            <a
+              href="https://www.nature.com/articles/s42256-024-00878-8"
+              target="_blank"
+              rel="noopener noreferrer"
+              >The Data Provenance Initiative: a large-scale audit of AI
+              training data</a
+            >
+            <span class="pub-venue">Nature Machine Intelligence</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2025</span>
+            <a
+              href="https://openreview.net/forum?id=G5DziesYxL"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Bridging the data provenance gap across text, speech, and
+              video</a
+            >
+            <span class="pub-venue">ICLR</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2023</span>
+            <a
+              href="https://www.networklawreview.org/computational-one/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Legal dynamism: recasting law as a dynamic system</a
+            >
+            <span class="pub-venue">Network Law Review</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2022</span>
+            <a
+              href="https://sciencepolicyreview.org/wp-content/uploads/securepdfs/2022/08/MITSPR-v3-191618003020.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AML by design: designing central bank digital currencies to
+              stifle money laundering</a
+            >
+            <span class="pub-venue">MIT Science Policy Review</span>
+          </div>
+          <div class="pub-row">
+            <span class="pub-year">2021</span>
+            <a
+              href="https://law.stanford.edu/wp-content/uploads/2021/04/pentland-computational-antitrust-project.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Time for a new antitrust era</a
+            >
+            <span class="pub-venue">Stanford Computational Antitrust</span>
           </div>
         </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/4.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Preparing for Addictive Intelligence</h1>
-            <p class="hover-content">
-              Individuals are starting to form connections with AI companions.
-              Although this can harm users, this area is difficult to
-              regulate. Regulation by Design and Legal Dynamism might offer
-              solutions.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.technologyreview.com/2024/08/05/1095600/we-need-to-prepare-for-addictive-intelligence/', '_blank', 'noopener,noreferrer')"
-              >
-                MIT Technology Review
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://mit-serc.pubpub.org/pub/iopjyxcx/release/2', '_blank', 'noopener,noreferrer')"
-              >
-                MIT Case Study
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/5.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Legal Dynamism</h1>
-            <p class="hover-content">
-              Advances in computational law allow us to re-examine and update
-              regulation in real time, recasting laws as dynamic systems rather
-              than as static rules.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://www.networklawreview.org/computational-one/', '_blank', 'noopener,noreferrer')"
-              >
-                Network Law Review
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/9.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Authenticated Delegation for AI Agents</h1>
-            <p class="hover-content">
-              As AI agents act on behalf of people, services need ways to
-              verify who authorized an agent and what it is permitted to do.
-              We propose extending existing authorization standards to AI
-              agents.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://openreview.net/forum?id=9skHxuHyM4', '_blank', 'noopener,noreferrer')"
-              >
-                ICML
-              </button>
-              <button
-                class="centered-button"
-                onclick="window.open('https://arxiv.org/abs/2501.09674', '_blank', 'noopener,noreferrer')"
-              >
-                Preprint
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/1.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Sentencing the Brussels Effect</h1>
-            <p class="hover-content">
-              Written with a lead author of the EU AI Act, we examine how the
-              Act treats AI sentencing tools and what other jurisdictions
-              should consider before adopting its approach.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://read.dukeupress.edu/fsr/article/37/3-4/287/403306/Sentencing-the-Brussels-EffectThe-Limits-of-the-EU', '_blank', 'noopener,noreferrer')"
-              >
-                Federal Sentencing Reporter
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images_yellow/6.jpg');">
-				<div class="square-content p-4">
-					<h1>Transparency by Design for Large Language Models</h1>
-					<p class="hover-content">A proposal for an LLM-powered data trust that allows modification of underlying data to increase privacy and transparency.</p>
-					<div class="read-paper-button">
-						<button class="centered-button" onclick="window.open('https://www.networklawreview.org/computational-three/', '_blank', 'noopener,noreferrer')">Network Law Review Paper</button>
-					</div>
-				</div>
-			</div> -->
-
-        <!-- <div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images_yellow/6.jpg');">
-				<div class="square-content p-4">
-					<h1>Justice in a Vacuum?</h1>
-					<p class="hover-content">Is a truly decentralized form of dispute resolution that relies entirely on network effects to enforce judgments feasible?</p>
-					<div class="read-paper-button">
-						<button class="centered-button" onclick="window.open('https://www.networklawreview.org/computational-two/', '_blank', 'noopener,noreferrer')">Network Law Review Paper</button>
-					</div>
-				</div>
-			</div> -->
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/6.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>AML by Design</h1>
-            <p class="hover-content">
-              Designing central bank digital currencies to stifle money
-              laundering.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://sciencepolicyreview.org/wp-content/uploads/securepdfs/2022/08/MITSPR-v3-191618003020.pdf', '_blank', 'noopener,noreferrer')"
-              >
-                MIT Science Policy Review
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="square-box bg-common border border-gray-300 rounded"
-          style="background-image: url('images/abstract_images_yellow/7.jpg')"
-        >
-          <div class="square-content p-4">
-            <h1>Time for a New Antitrust Era</h1>
-            <p class="hover-content">
-              Responding to unique challenges of a data-driven marketplace by
-              expanding monopoly power to include data ownership and enhancing
-              premerger review with network science.
-            </p>
-            <div class="read-paper-button mt-auto">
-              <button
-                class="centered-button"
-                onclick="window.open('https://law.stanford.edu/wp-content/uploads/2021/04/pentland-computational-antitrust-project.pdf', '_blank', 'noopener,noreferrer')"
-              >
-                Stanford Computational Antitrust
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images_yellow/1.jpg');">
-				<div class="square-content p-4">
-					<h1>Co-creation and ownership for AI radio</h1>
-					<p class="hover-content"> Blending AI-generated music with listener ratings and personalized recommendations enables large-scale human curation and raises questions about the ownership of AI-created content.</p>
-					<div class="read-paper-button">
-						<button class="centered-button" onclick="window.open('https://computationalcreativity.net/iccc22/wp-content/uploads/2022/06/ICCC-2022_21S_Gordon-et-al..pdf', '_blank', 'noopener,noreferrer')">ICCC Paper</button>
-					</div>
-				</div>
-			</div> 
-
-			<div class="square-box bg-common border border-gray-300 rounded p-4" style="background-image: url('images/abstract_images_yellow/8.jpg');">
-				<div class="square-content p-4">
-					<h1>zkTax: zero-knowledge tax disclosures</h1>
-					<p class="hover-content"> Zero-knowledge tax disclosure system that allows individuals and organizations to make provable claims about tax data without revealing additional informatio.</p>
-					<div class="read-paper-button">
-						<button class="centered-button" onclick="window.open('https://arxiv.org/pdf/2311.13008.pdf', '_blank', 'noopener,noreferrer')">Preprint</button>
-					</div>
-				</div>
-			</div> -->
       </div>
 
-      <p class="text-center mt-8">
+      <p class="scholar-link">
         <a
           href="https://scholar.google.com/citations?user=3qM8lPsAAAAJ&hl=en"
           target="_blank"
           rel="noopener noreferrer"
-          class="custom-link"
           >Full publication list on Google Scholar &rarr;</a
         >
       </p>
@@ -853,9 +646,11 @@
 
     <!--Speaking-->
     <div id="speaking" class="section scroll-offset md:mt-8">
-      <h2 class="text-2xl font-bold black mb-4">Speaking</h2>
+      <h2 class="section-title">Speaking</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-8" >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-8"
+      >
         <div class="video-box flex flex-col justify-between">
           <h2 class="text-xl font-semibold black">
             Jurimetrics Reloaded | CodeX FutureLaw 2026
@@ -1140,277 +935,265 @@
       </div>
 
       <div class="flex justify-center mt-4">
-        <button
-          id="see-more-videos"
-          class="text-sm font-semibold black bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
-        >
+        <button id="see-more-videos" class="see-more-button black">
           See More
         </button>
       </div>
     </div>
 
-    <!--News-->
+    <!--Press-->
     <div id="news" class="section scroll-offset">
-      <h2 class="text-2xl font-bold black mb-4">Press & Media</h2>
+      <h2 class="section-title">Press &amp; Media</h2>
 
-      <div class="carousel" id="news-carousel">
-        <a
-          href="https://www.threecrownsllp.com/news/three-crowns-co-hosts-generative-legal-inaugural-gathering-with-stanford-codex/"
-          class="news-card"
-          style="background-image: url('images/abstract_images_red/8.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>Generative Legal</h4>
-            <h3>Inaugural Generative Legal gathering at Stanford Law School</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.mondaq.com/unitedstates/arbitration-dispute-resolution/1761328/who-picks-the-arbitrator-you-or-the-algorithm"
-          class="news-card"
-          style="background-image: url('images/abstract_images_green/8.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>JAMS</h4>
-            <h3>Who Picks the Arbitrator — You or the Algorithm?</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.lawnext.com/2025/06/paxton-releases-white-paper-by-harvard-jd-and-mit-phd-researcher-robert-mahari-on-responsible-ai-use-in-legal-practice.html"
-          class="news-card"
-          style="background-image: url('images/abstract_images_red/9.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>LawSites</h4>
-            <h3>White Paper on Responsible AI Use in Legal Practice</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.techpolicy.press/ai-companions-and-the-law/"
-          class="news-card"
-          style="background-image: url('images/abstract_images_green/9.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>Tech Policy Press</h4>
-            <h3>AI Companions and the Law</h3>
-          </div>
-        </a>
-        <a
-          href="https://news.mit.edu/2024/study-large-language-models-datasets-lack-transparency-0830"
-          class="news-card"
-          style="background-image: url('images/abstract_images_red/1.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>MIT News</h4>
-            <h3>Transparency Is Often Lacking in LLM Training Datasets</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.technologyreview.com/2024/08/12/1096202/how-people-actually-using-ai/"
-          class="news-card"
-          style="background-image: url('images/abstract_images_green/7.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>MIT Technology Review</h4>
-            <h3>Here's How People Are Actually Using AI</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
-          class="news-card"
-          style="background-image: url('images/news/nytimes-dpi.jpeg')"
-        >
-          <div class="news-card-text">
-            <h4>New York Times</h4>
-            <h3>The Data That Powers A.I. Is Disappearing Fast</h3>
-          </div>
-        </a>
-        <a
-          href="https://washingtonpost.com/technology/2023/10/25/data-provenance/"
-          class="news-card"
-          style="background-image: url('images/news/washington-post-dpi.jpeg')"
-        >
-          <div class="news-card-text">
-            <h4>Washington Post</h4>
-            <h3>Ethical, Legal Risks to Using Popular Data Sets</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.reuters.com/legal/transactional/legal-transparency-ai-finance-facing-accountability-dilemma-digital-decision-2024-03-01/"
-          class="news-card"
-          style="background-image: url('images/news/reuters-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>Reuters</h4>
-            <h3>Dilemma in digital decisionmaking</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.404media.co/nvidia-ai-scraping-foundational-model-cosmos-project/"
-          class="news-card"
-          style="background-image: url('images/news/404media-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>404 Media</h4>
-            <h3>Leaked: Nvidia's AI Scraping Pipeline</h3>
-          </div>
-        </a>
-        <a
-          href="https://spectrum.ieee.org/data-ai"
-          class="news-card"
-          style="background-image: url('images/news/ieee-spectrum-dpi.jpeg')"
-        >
-          <div class="news-card-text">
-            <h4>IEEE Spectrum</h4>
-            <h3>AI Datasets Are Rife With Licensing Errors</h3>
-          </div>
-        </a>
-        <a
-          href="https://venturebeat.com/ai/mit-cohere-for-ai-others-launch-platform-to-track-and-filter-audited-ai-datasets/"
-          class="news-card"
-          style="background-image: url('images/news/venture-beat-dpi.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>VentureBeat</h4>
-            <h3>Platform to filter audited AI datasets</h3>
-          </div>
-        </a>
-        <a
-          href="https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473"
-          class="news-card"
-          style="
-            background-image: url('images/news/conversartion-artscience.jpeg');
-          "
-        >
-          <div class="news-card-text">
-            <h4>The Conversation</h4>
-            <h3>Generative AI is a minefield for copyright law</h3>
-          </div>
-        </a>
-        <a
-          href="https://fortune.com/2023/06/16/generative-a-i-copyright-law/"
-          class="news-card"
-          style="background-image: url('images/news/fortune-artscience.jpeg')"
-        >
-          <div class="news-card-text">
-            <h4>Fortune</h4>
-            <h3>Artists seek payment for their work</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.law360.com/pulse/articles/1868346/open-source-dataset-aims-to-make-legal-ai-more-accurate"
-          class="news-card"
-          style="background-image: url('images/news/placeholder.png')"
-        >
-          <div class="news-card-text">
-            <h4>Law360</h4>
-            <h3>Dataset Aims To Make Legal AI More Accurate</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.datanami.com/2024/07/26/are-we-running-out-of-training-data-for-genai/"
-          class="news-card"
-          style="background-image: url('images/news/datanami-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>Datanami</h4>
-            <h3>Are We Running Out of Training Data for GenAI?</h3>
-          </div>
-        </a>
-        <a
-          href="https://observer.com/2024/07/ai-training-data-crisis/"
-          class="news-card"
-          style="background-image: url('images/news/observer-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>Observer</h4>
-            <h3>AI Companies Are Running Out of Training Data</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.insidehighered.com/news/tech-innovation/2023/08/22/ai-raises-complicated-questions-about-authorship"
-          class="news-card"
-          style="
-            background-image: url('images/news/inside-highered-artscience.jpeg');
-          "
-        >
-          <div class="news-card-text">
-            <h4>Inside HigherEd</h4>
-            <h3>AI Raises Questions About Authorship</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.euronews.com/next/2023/07/10/copyright-challenges-in-the-age-of-ai-who-owns-ai-generated-content"
-          class="news-card"
-          style="background-image: url('images/news/euronews-artscience.jpeg')"
-        >
-          <div class="news-card-text">
-            <h4>EuroNews</h4>
-            <h3>Copyright challenges in the age of AI</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.law360.com/articles/1812918/gen-ai-shows-promise-and-peril-for-pro-se-litigants"
-          class="news-card"
-          style="background-image: url('images/news/law360-panel.jpg')"
-        >
-          <div class="news-card-text">
-            <h4>Law360</h4>
-            <h3>AI Shows Promise — And Peril — For Pro Se Litigants</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.law360.com/pulse/articles/1845041/attys-adopting-generative-ai-tools-as-they-learn-the-lingo"
-          class="news-card"
-          style="background-image: url('images/news/placeholder.png')"
-        >
-          <div class="news-card-text">
-            <h4>Law360</h4>
-            <h3>Attys Adopting Generative AI Tools As They Learn The Lingo</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.techcircle.in/2023/10/26/mit-cohere-for-ai-others-launch-platform-to-enhance-transparency-in-ai-data"
-          class="news-card"
-          style="background-image: url('images/news/techcircle-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>TechCircle</h4>
-            <h3>Platform to enhance transparency in AI data</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.brighttalk.com/webcast/19989/582569"
-          class="news-card"
-          style="background-image: url('images/news/brighttalk-artscience.png')"
-        >
-          <div class="news-card-text">
-            <h4>BrightTALK</h4>
-            <h3>AI: Impact, challenges and responsibilities</h3>
-          </div>
-        </a>
-        <a
-          href="https://www.brighttalk.com/webcast/18865/614702"
-          class="news-card"
-          style="background-image: url('images/news/brighttalk-dpi.png')"
-        >
-          <div class="news-card-text">
-            <h4>BrightTALK</h4>
-            <h3>Understand data provenance for AI</h3>
-          </div>
-        </a>
-      </div>
-
-      <div class="scroll-cue" onclick="autoScroll('news-carousel')">
-        Scroll for more <span class="arrow">➜</span>
+      <div class="press-rows">
+        <div class="press-row">
+          <span class="pub-year">2026</span>
+          <span class="press-outlet">Generative Legal</span>
+          <a
+            href="https://www.threecrownsllp.com/news/three-crowns-co-hosts-generative-legal-inaugural-gathering-with-stanford-codex/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Inaugural Generative Legal gathering at Stanford Law School</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2026</span>
+          <span class="press-outlet">JAMS</span>
+          <a
+            href="https://www.mondaq.com/unitedstates/arbitration-dispute-resolution/1761328/who-picks-the-arbitrator-you-or-the-algorithm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Who picks the arbitrator &mdash; you or the algorithm?</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2025</span>
+          <span class="press-outlet">LawSites</span>
+          <a
+            href="https://www.lawnext.com/2025/06/paxton-releases-white-paper-by-harvard-jd-and-mit-phd-researcher-robert-mahari-on-responsible-ai-use-in-legal-practice.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >White paper on responsible AI use in legal practice</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2025</span>
+          <span class="press-outlet">Tech Policy Press</span>
+          <a
+            href="https://www.techpolicy.press/ai-companions-and-the-law/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI companions and the law</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">MIT News</span>
+          <a
+            href="https://news.mit.edu/2024/study-large-language-models-datasets-lack-transparency-0830"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Transparency is often lacking in LLM training datasets</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">MIT Technology Review</span>
+          <a
+            href="https://www.technologyreview.com/2024/08/12/1096202/how-people-actually-using-ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Here's how people are actually using AI</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">New York Times</span>
+          <a
+            href="https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >The data that powers A.I. is disappearing fast</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Reuters</span>
+          <a
+            href="https://www.reuters.com/legal/transactional/legal-transparency-ai-finance-facing-accountability-dilemma-digital-decision-2024-03-01/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Dilemma in digital decisionmaking</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">404 Media</span>
+          <a
+            href="https://www.404media.co/nvidia-ai-scraping-foundational-model-cosmos-project/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Leaked: Nvidia's AI scraping pipeline</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">IEEE Spectrum</span>
+          <a
+            href="https://spectrum.ieee.org/data-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI datasets are rife with licensing errors</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Law360</span>
+          <a
+            href="https://www.law360.com/pulse/articles/1868346/open-source-dataset-aims-to-make-legal-ai-more-accurate"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open-source dataset aims to make legal AI more accurate</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Law360</span>
+          <a
+            href="https://www.law360.com/articles/1812918/gen-ai-shows-promise-and-peril-for-pro-se-litigants"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI shows promise &mdash; and peril &mdash; for pro se litigants</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Law360</span>
+          <a
+            href="https://www.law360.com/pulse/articles/1845041/attys-adopting-generative-ai-tools-as-they-learn-the-lingo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Attorneys adopting generative AI tools as they learn the lingo</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Datanami</span>
+          <a
+            href="https://www.datanami.com/2024/07/26/are-we-running-out-of-training-data-for-genai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Are we running out of training data for GenAI?</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">Observer</span>
+          <a
+            href="https://observer.com/2024/07/ai-training-data-crisis/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI companies are running out of training data</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2024</span>
+          <span class="press-outlet">BrightTALK</span>
+          <a
+            href="https://www.brighttalk.com/webcast/18865/614702"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Understand data provenance for AI</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">Washington Post</span>
+          <a
+            href="https://washingtonpost.com/technology/2023/10/25/data-provenance/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ethical, legal risks to using popular data sets</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">VentureBeat</span>
+          <a
+            href="https://venturebeat.com/ai/mit-cohere-for-ai-others-launch-platform-to-track-and-filter-audited-ai-datasets/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Platform to track and filter audited AI datasets</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">The Conversation</span>
+          <a
+            href="https://theconversation.com/generative-ai-is-a-minefield-for-copyright-law-207473"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Generative AI is a minefield for copyright law</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">Fortune</span>
+          <a
+            href="https://fortune.com/2023/06/16/generative-a-i-copyright-law/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Artists seek payment for their work</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">Inside HigherEd</span>
+          <a
+            href="https://www.insidehighered.com/news/tech-innovation/2023/08/22/ai-raises-complicated-questions-about-authorship"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI raises complicated questions about authorship</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">EuroNews</span>
+          <a
+            href="https://www.euronews.com/next/2023/07/10/copyright-challenges-in-the-age-of-ai-who-owns-ai-generated-content"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Copyright challenges in the age of AI</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">TechCircle</span>
+          <a
+            href="https://www.techcircle.in/2023/10/26/mit-cohere-for-ai-others-launch-platform-to-enhance-transparency-in-ai-data"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Platform to enhance transparency in AI data</a
+          >
+        </div>
+        <div class="press-row">
+          <span class="pub-year">2023</span>
+          <span class="press-outlet">BrightTALK</span>
+          <a
+            href="https://www.brighttalk.com/webcast/19989/582569"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AI: impact, challenges and responsibilities</a
+          >
+        </div>
       </div>
     </div>
+
+    <footer class="bg-blue-100 mt-8 py-4 pt-2 pb-2 text-center">
+      <p class="text-base black">
+        Website built from scratch with help from ChatGPT, DALL·E 3, Midjourney,
+        Claude, and <a href="https://tobin.page" class="custom-link">Tobin South</a>
+      </p>
+    </footer>
   </body>
-
-  <footer class="bg-blue-100 mt-8 py-4 pt-2 pb-2 text-center">
-    <p class="text-base black">
-      Website built from scratch with help from ChatGPT, DALL·E 3, Midjourney,
-      and <a href="https://tobin.page" class="custom-link">Tobin South</a>
-    </p>
-  </footer>
 </html>
-
